@@ -399,6 +399,19 @@ body.mjeed-browsing .sec-line {
     transform: translateY(0) !important;
 }
 
+/* Disable link on touch devices and show info */
+@media (hover: none) {
+    .block-post a {
+        pointer-events: none !important;
+    }
+
+    .block-post .mjeed-info {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+    }
+}
+
 .mjeed-info-title {
     color: #ffffff !important;
     font-size: 14px !important;
@@ -454,7 +467,8 @@ body.mjeed-browsing .sec-line {
 }
 
 /* ========== PAGINATION ========== */
-.pagination {
+.pagination,
+.navigation {
     display: flex !important;
     justify-content: center !important;
     gap: 10px !important;
@@ -462,6 +476,10 @@ body.mjeed-browsing .sec-line {
     padding: 0 !important;
     width: 100% !important;
     flex-basis: 100% !important;
+    position: relative !important;
+    z-index: 50 !important;
+    grid-column: 1 / -1 !important;
+    clear: both !important;
 }
 
 .pagination span,
@@ -490,10 +508,8 @@ body.mjeed-browsing .sec-line {
 .pagination a:hover {
     background: rgba(255, 255, 255, 0.2) !important;
     color: #ffffff !important;
-    transform: scale(1.05) !important;
+    transform: none !important;
 }
-
-/* ========== RESPONSIVE DESIGN - STANDARDIZED BREAKPOINTS ========== */
 
 /* 1. Laptops & Small Desktops - 1366px */
 @media (max-width: 1366px) {
@@ -1081,4 +1097,57 @@ article.post {
     .mjeed-modal-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
+}
+
+/* ========== BOOTSTRAP GRID OVERRIDE ========== */
+/* Fix for pagination clickability issue caused by relative positioning */
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9 {
+    position: static !important;
 }
