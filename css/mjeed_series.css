@@ -69,8 +69,8 @@ body {
     padding: 0 !important;
     overflow: visible !important;
     margin-top: 60px !important;
-    height: clamp(500px, 80vh, 700px) !important;
-    min-height: clamp(400px, 60vh, 600px) !important;
+    height: clamp(500px, 80dvh, 700px) !important;
+    min-height: clamp(400px, 60dvh, 600px) !important;
 }
 
 /* HERO CONTENT - Mobile First (bottom positioning) */
@@ -121,7 +121,7 @@ body {
     font-size: clamp(24px, 5vw, 48px) !important;
     font-weight: 900 !important;
     color: #fff !important;
-    margin: 0 0 clamp(12px, 2vh, 20px) 0 !important;
+    margin: 0 0 clamp(12px, 2dvh, 20px) 0 !important;
     line-height: 1.1 !important;
     letter-spacing: -1px !important;
     max-width: 800px !important;
@@ -133,14 +133,14 @@ body {
     font-size: clamp(11px, 1.8vw, 16px) !important;
     color: #e5e5e5 !important;
     line-height: 1.7 !important;
-    margin-bottom: clamp(14px, 2.5vh, 24px) !important;
+    margin-bottom: clamp(14px, 2.5dvh, 24px) !important;
     max-width: 700px;
 }
 
 .mjeed-series-cast {
     font-size: clamp(12px, 1.5vw, 14px) !important;
     color: #d4d4d4 !important;
-    margin-bottom: clamp(20px, 3vh, 30px) !important;
+    margin-bottom: clamp(20px, 3dvh, 30px) !important;
     max-width: 700px !important;
 }
 
@@ -180,7 +180,7 @@ body {
     align-items: center !important;
     justify-content: center !important;
     gap: clamp(6px, 1vw, 10px) !important;
-    padding: clamp(10px, 1.5vh, 14px) clamp(16px, 3vw, 28px) !important;
+    padding: clamp(10px, 1.5dvh, 14px) clamp(16px, 3vw, 28px) !important;
     border-radius: 50px !important;
     font-size: clamp(13px, 1.8vw, 16px) !important;
     font-weight: 700 !important;
@@ -223,7 +223,7 @@ body {
     align-items: center !important;
     justify-content: center !important;
     gap: clamp(6px, 1vw, 10px) !important;
-    padding: clamp(10px, 1.5vh, 14px) clamp(16px, 3vw, 28px) !important;
+    padding: clamp(10px, 1.5dvh, 14px) clamp(16px, 3vw, 28px) !important;
     border-radius: 50px !important;
     font-size: clamp(13px, 1.8vw, 16px) !important;
     font-weight: 700 !important;
@@ -297,8 +297,8 @@ body {
     padding: 0 !important;
     overflow: visible !important;
     margin-top: 60px !important;
-    height: clamp(500px, 80vh, 700px) !important;
-    min-height: clamp(400px, 60vh, 600px) !important;
+    height: clamp(500px, 80dvh, 700px) !important;
+    min-height: clamp(400px, 60dvh, 600px) !important;
 }
 
 /* HERO CONTENT - Mobile First (bottom positioning) */
@@ -349,7 +349,7 @@ body {
     font-size: clamp(24px, 5vw, 48px) !important;
     font-weight: 900 !important;
     color: #fff !important;
-    margin: 0 0 clamp(12px, 2vh, 20px) 0 !important;
+    margin: 0 0 clamp(12px, 2dvh, 20px) 0 !important;
     line-height: 1.1 !important;
     letter-spacing: -1px !important;
     max-width: 800px !important;
@@ -361,14 +361,14 @@ body {
     font-size: clamp(11px, 1.8vw, 16px) !important;
     color: #e5e5e5 !important;
     line-height: 1.7 !important;
-    margin-bottom: clamp(14px, 2.5vh, 24px) !important;
+    margin-bottom: clamp(14px, 2.5dvh, 24px) !important;
     max-width: 700px;
 }
 
 .mjeed-series-cast {
     font-size: clamp(12px, 1.5vw, 14px) !important;
     color: #d4d4d4 !important;
-    margin-bottom: clamp(20px, 3vh, 30px) !important;
+    margin-bottom: clamp(20px, 3dvh, 30px) !important;
     max-width: 700px !important;
 }
 
@@ -488,8 +488,8 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
 /* 1. Laptops & Small Desktops - 1366px */
 @media (max-width: 1366px) {
     .mjeed-series-hero {
-        height: clamp(480px, 75vh, 680px) !important;
-        min-height: clamp(380px, 55vh, 580px) !important;
+        height: clamp(480px, 75dvh, 680px) !important;
+        min-height: clamp(380px, 55dvh, 580px) !important;
     }
 
     .mjeed-series-title {
@@ -511,8 +511,8 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
 /* 2. Tablets (Landscape) - 992px */
 @media (max-width: 992px) {
     .mjeed-series-hero {
-        height: clamp(450px, 70vh, 600px) !important;
-        min-height: clamp(350px, 50vh, 500px) !important;
+        height: clamp(450px, 70dvh, 600px) !important;
+        min-height: clamp(350px, 50dvh, 500px) !important;
     }
 
     .mjeed-series-title {
@@ -523,18 +523,18 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
     .mjeed-series-story {
         font-size: clamp(12px, 1.6vw, 14px) !important;
         max-width: 600px !important;
-        margin-bottom: clamp(16px, 2vh, 20px) !important;
+        margin-bottom: clamp(16px, 2dvh, 20px) !important;
     }
 
     .mjeed-series-cast {
         font-size: clamp(11px, 1.4vw, 13px) !important;
-        margin-bottom: clamp(20px, 2.5vh, 26px) !important;
+        margin-bottom: clamp(20px, 2.5dvh, 26px) !important;
     }
 
     .mjeed-play-btn,
     .mjeed-mylist-btn {
         font-size: clamp(13px, 1.7vw, 15px) !important;
-        padding: clamp(10px, 1.3vh, 12px) clamp(18px, 2.5vw, 24px) !important;
+        padding: clamp(10px, 1.3dvh, 12px) clamp(18px, 2.5vw, 24px) !important;
     }
 
     .mjeed-episodes-grid {
@@ -550,8 +550,8 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
 /* 3. Tablets (Portrait) - 768px (iPad) */
 @media (max-width: 768px) {
     .mjeed-series-hero {
-        height: clamp(400px, 60vh, 500px) !important;
-        min-height: clamp(320px, 45vh, 450px) !important;
+        height: clamp(400px, 60dvh, 500px) !important;
+        min-height: clamp(320px, 45dvh, 450px) !important;
         margin-top: calc(55px + env(safe-area-inset-top)) !important;
     }
 
@@ -564,19 +564,19 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
     .mjeed-series-title {
         font-size: clamp(24px, 3.5vw, 32px) !important;
         max-width: 100% !important;
-        margin-bottom: clamp(12px, 1.8vh, 16px) !important;
+        margin-bottom: clamp(12px, 1.8dvh, 16px) !important;
     }
 
     .mjeed-series-story {
         font-size: clamp(12px, 1.5vw, 14px) !important;
         max-width: 100% !important;
-        margin-bottom: clamp(14px, 2vh, 18px) !important;
+        margin-bottom: clamp(14px, 2dvh, 18px) !important;
         line-height: 1.5 !important;
     }
 
     .mjeed-series-cast {
         font-size: clamp(11px, 1.3vw, 13px) !important;
-        margin-bottom: clamp(18px, 2.2vh, 22px) !important;
+        margin-bottom: clamp(18px, 2.2dvh, 22px) !important;
         max-width: 100% !important;
     }
 
@@ -587,7 +587,7 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
     }
 
     .mjeed-episodes-section {
-        padding: clamp(16px, 3vh, 24px) max(3%, env(safe-area-inset-left)) clamp(32px, 6vh, 48px) max(3%, env(safe-area-inset-right));
+        padding: clamp(16px, 3dvh, 24px) max(3%, env(safe-area-inset-left)) clamp(32px, 6dvh, 48px) max(3%, env(safe-area-inset-right));
     }
 
     .mjeed-episodes-grid {
@@ -603,8 +603,8 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
 /* 4. Large Mobiles - 668px */
 @media (max-width: 668px) {
     .mjeed-series-hero {
-        height: clamp(380px, 55vh, 480px) !important;
-        min-height: clamp(300px, 40vh, 400px) !important;
+        height: clamp(380px, 55dvh, 480px) !important;
+        min-height: clamp(300px, 40dvh, 400px) !important;
     }
 
     .mjeed-hero-content {
@@ -614,17 +614,17 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
 
     .mjeed-series-title {
         font-size: clamp(22px, 3.2vw, 28px) !important;
-        margin-bottom: clamp(10px, 1.6vh, 14px) !important;
+        margin-bottom: clamp(10px, 1.6dvh, 14px) !important;
     }
 
     .mjeed-series-story {
         font-size: clamp(11px, 1.4vw, 13px) !important;
-        margin-bottom: clamp(12px, 1.8vh, 16px) !important;
+        margin-bottom: clamp(12px, 1.8dvh, 16px) !important;
         line-height: 1.4 !important;
     }
 
     .mjeed-episodes-section {
-        padding: clamp(14px, 2.5vh, 20px) max(2.5%, env(safe-area-inset-left)) clamp(28px, 5vh, 40px) max(2.5%, env(safe-area-inset-right));
+        padding: clamp(14px, 2.5dvh, 20px) max(2.5%, env(safe-area-inset-left)) clamp(28px, 5dvh, 40px) max(2.5%, env(safe-area-inset-right));
     }
 
     .mjeed-episodes-header {
@@ -635,8 +635,8 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
 /* 5. Medium Mobiles - 580px */
 @media (max-width: 580px) {
     .mjeed-series-hero {
-        height: clamp(360px, 50vh, 450px) !important;
-        min-height: clamp(280px, 38vh, 380px) !important;
+        height: clamp(360px, 50dvh, 450px) !important;
+        min-height: clamp(280px, 38dvh, 380px) !important;
     }
 
     .mjeed-hero-content {
@@ -649,7 +649,7 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
     }
 
     .mjeed-episodes-section {
-        padding: clamp(12px, 2vh, 18px) max(2%, env(safe-area-inset-left)) clamp(24px, 4.5vh, 36px) max(2%, env(safe-area-inset-right));
+        padding: clamp(12px, 2dvh, 18px) max(2%, env(safe-area-inset-left)) clamp(24px, 4.5dvh, 36px) max(2%, env(safe-area-inset-right));
     }
 
     .mjeed-episodes-grid {
@@ -666,9 +666,9 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
 /* 6. Small Mobiles - 480px (iPhone) */
 @media (max-width: 480px) {
     .mjeed-series-hero {
-        height: clamp(340px, 45vh, 420px) !important;
+        height: clamp(340px, 45dvh, 420px) !important;
         /* Compact hero */
-        min-height: clamp(260px, 35vh, 350px) !important;
+        min-height: clamp(260px, 35dvh, 350px) !important;
         margin-top: calc(50px + env(safe-area-inset-top)) !important;
     }
 

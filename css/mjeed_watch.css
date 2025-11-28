@@ -15,7 +15,7 @@ body.mjeed-watch-active #mjeed-header {
 .mjeed-watch-main-container {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: var(--mjeed-black);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--mjeed-text);
@@ -28,7 +28,7 @@ body.mjeed-watch-active #mjeed-header {
 .mjeed-watch-hero {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
