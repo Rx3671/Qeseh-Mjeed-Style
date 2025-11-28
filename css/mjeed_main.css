@@ -6,1080 +6,1079 @@
  */
 
 /* ========== CSS VARIABLES ========== */
-:root {
-    /* Colors */
-    --mjeed-black: #000000;
-    --mjeed-red: #e50914;
-    --mjeed-text: #f5f5f7;
-    --mjeed-text-secondary: rgba(255, 255, 255, 0.7);
-    --mjeed-bg-dark: #141414;
-    --mjeed-bg-card: #1c1c1e;
-    --mjeed-border: rgba(255, 255, 255, 0.1);
+/* Variables are now injected dynamically from js/config.js */
 
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 0.75rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
+/* 140px */
+form[role="search"] {
+    display: none !important;
+    visibility: hidden !important;
+}
 
-    /* Typography */
-    --font-size-xs: clamp(0.625rem, 2vw, 0.75rem);
-    --font-size-sm: clamp(0.75rem, 2.5vw, 0.875rem);
-    --font-size-base: clamp(0.875rem, 3vw, 1rem);
-    --font-size-md: clamp(1rem, 3.5vw, 1.125rem);
-    --font-size-lg: clamp(1.125rem, 4vw, 1.5rem);
-    --font-size-xl: clamp(1.5rem, 5vw, 2rem);
+/* ========== RESET & GLOBAL ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    /* Layout */
-    --header-height: 3.75rem;
-    /* 60px */
-    --grid-gap: 1rem;
-    --grid-min-width: 8.75rem;
+body,
+html {
+    background-color: var(--mjeed-black) !important;
+    color: var(--mjeed-text) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    overflow-x: hidden !important;
+    line-height: 1.4 !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-size: var(--font-size-base) !important;
+    min-height: 100dvh !important;
+}
 
-    /* 140px */
-    form[role="search"] {
-        display: none !important;
-        visibility: hidden !important;
-    }
+/* Ensure content background is black */
+.sec-line,
+.content,
+.wrapper,
+#main,
+.main-content {
+    background-color: var(--mjeed-black) !important;
+}
 
-    /* ========== HEADER (Glassmorphism) ========== */
-    #mjeed-header {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        height: 60px !important;
-        /* Fixed height */
-        min-height: 60px !important;
-        background: rgba(20, 20, 20, 0.6) !important;
-        backdrop-filter: blur(30px) saturate(180%) !important;
-        -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
-        z-index: 9999 !important;
-        display: flex !important;
-        align-items: center !important;
-        padding: env(safe-area-inset-top) max(4%, env(safe-area-inset-right)) 0 max(4%, env(safe-area-inset-left)) !important;
-        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    }
+/* ========== HEADER (Glassmorphism) ========== */
+#mjeed-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    /* Fixed height */
+    min-height: 60px !important;
+    background: rgba(20, 20, 20, 0.6) !important;
+    backdrop-filter: blur(30px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: env(safe-area-inset-top) max(4%, env(safe-area-inset-right)) 0 max(4%, env(safe-area-inset-left)) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
 
-    #mjeed-header.scrolled {
-        background: rgba(20, 20, 20, 0.85) !important;
-        backdrop-filter: blur(50px) saturate(180%) !important;
+#mjeed-header.scrolled {
+    background: rgba(20, 20, 20, 0.85) !important;
+    backdrop-filter: blur(50px) saturate(180%) !important;
+}
+
+#mjeed-logo {
+    color: #e50914 !important;
+    font-size: 24px !important;
+    /* Fixed size */
+    font-weight: 800 !important;
+    text-decoration: none !important;
+    margin-left: 0 !important;
+    letter-spacing: -0.5px !important;
+    text-shadow: 0 2px 10px rgba(229, 9, 20, 0.3) !important;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    line-height: 1 !important;
+}
+
+.mjeed-logo-container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    margin-left: 20px !important;
+}
+
+.mjeed-logo-subtitle {
+    font-size: 9px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin-top: 2px !important;
+    white-space: nowrap !important;
+    font-weight: normal !important;
+}
+
+#mjeed-logo:hover {
+    transform: scale(1.05) !important;
+}
+
+#mjeed-nav {
+    display: flex !important;
+    gap: 20px !important;
+    margin-right: 30px !important;
+}
+
+#mjeed-nav a {
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    /* Fixed size */
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    /* Pill Hover */
+}
+
+#mjeed-nav a:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+#mjeed-nav a::after {
+    display: none !important;
+}
+
+#mjeed-search-icon {
+    margin-right: auto !important;
+    font-size: 20px !important;
+    /* Fixed size */
+    cursor: pointer !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    padding: 8px !important;
+    transition: all 0.3s ease !important;
+    border-radius: 50% !important;
+}
+
+#mjeed-search-icon:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(1.1) !important;
+}
+
+/* ========== MAIN CONTENT ========== */
+body.mjeed-browsing .sec-line {
+    padding-top: calc(80px + env(safe-area-inset-top)) !important;
+    /* Fixed padding */
+    padding-left: max(4%, env(safe-area-inset-left));
+    padding-right: max(4%, env(safe-area-inset-right));
+    padding-bottom: max(40px, env(safe-area-inset-bottom));
+    background-color: #000000;
+    min-height: 100vh;
+    margin-top: 0 !important;
+    display: block !important;
+}
+
+.containers,
+.container-fluid {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ========== GRID CONTAINER ========== */
+.row {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    /* Fixed min width */
+    gap: 16px !important;
+    /* Slightly larger gap */
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+    justify-content: start !important;
+}
+
+#load-post {
+    width: 100% !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    gap: 16px !important;
+    align-items: stretch !important;
+    justify-content: start !important;
+}
+
+/* ========== POSTER ITEMS ========== */
+.post {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards !important;
+}
+
+.post:nth-child(1) {
+    animation-delay: 0.05s !important;
+}
+
+.post:nth-child(2) {
+    animation-delay: 0.1s !important;
+}
+
+.post:nth-child(3) {
+    animation-delay: 0.15s !important;
+}
+
+.post:nth-child(4) {
+    animation-delay: 0.2s !important;
+}
+
+.post:nth-child(5) {
+    animation-delay: 0.25s !important;
+}
+
+.post:nth-child(6) {
+    animation-delay: 0.3s !important;
+}
+
+.block-post {
+    position: relative !important;
+    width: 100% !important;
+    border-radius: 8px !important;
+    /* Fixed radius */
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    background: #000000 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    display: block !important;
+    visibility: visible !important;
+    border: 3px solid transparent !important;
+}
+
+/* Mjeed Hover Effect */
+.block-post:hover {
+    transform: scale(1.03) !important;
+    z-index: 100 !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    /* Focus Ring */
+}
+
+/* Gradient Overlay on Hover */
+.block-post::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.4s ease !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+}
+
+.block-post:hover::after {
+    opacity: 1 !important;
+}
+
+/* ========== POSTER IMAGE ========== */
+.posterThumb {
+    position: relative !important;
+    width: 100% !important;
+    padding-bottom: 155% !important;
+    /* Slightly Taller Aspect Ratio */
+    overflow: hidden !important;
+    background: #1c1c1e !important;
+}
+
+.imgBg {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    filter: brightness(1) !important;
+}
+
+.block-post:hover .imgBg {
+    transform: scale(1.02) !important;
+}
+
+/* ========== EPISODE BADGE (Glass Pill) ========== */
+.episodeNum {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    color: #ffffff !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    /* Bigger on Desktop */
+    font-weight: 700 !important;
+    z-index: 3 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 5px !important;
+    line-height: 1 !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.episodeNum span:first-child {
+    font-size: 10px !important;
+    opacity: 0.8 !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+}
+
+.episodeNum span:last-child {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+}
+
+/* ========== RIBBON (Glass) ========== */
+.ribbon {
+    position: absolute !important;
+    top: 10px !important;
+    right: -20px !important;
+    background: rgba(255, 215, 0, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    color: #000000 !important;
+    padding: 4px 30px !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    transform: rotate(45deg) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    z-index: 4 !important;
+}
+
+/* ========== TITLE ========== */
+.title {
+    padding: 10px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-align: center !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    transition: color 0.3s ease !important;
+    line-height: 1.4 !important;
+    min-height: auto !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+.block-post:hover .title {
+    color: #ffffff !important;
+}
+
+.block-post a {
+    text-decoration: none !important;
+    display: block !important;
+}
+
+/* ========== INFO OVERLAY (On Hover) ========== */
+.mjeed-info {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 10px !important;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.9) 60%, transparent 100%) !important;
+    opacity: 0 !important;
+    transform: translateY(10px) !important;
+    transition: all 0.3s ease !important;
+    z-index: 5 !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+    border-top: none !important;
+}
+
+.block-post:hover .mjeed-info {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.mjeed-info-title {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.3 !important;
+}
+
+.mjeed-info-actions {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+.mjeed-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 32px !important;
+    width: 32px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    font-size: 14px !important;
+    backdrop-filter: blur(5px) !important;
+    color: white !important;
+}
+
+.mjeed-btn:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(1.1) !important;
+}
+
+.mjeed-btn-play {
+    width: auto !important;
+    padding: 0 16px !important;
+    border-radius: 20px !important;
+    /* Pill */
+    background: #ffffff !important;
+    border: none !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    gap: 4px !important;
+}
+
+.mjeed-btn-play:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    transform: scale(1.05) !important;
+}
+
+/* ========== PAGINATION ========== */
+.pagination {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin: 40px 0 20px 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    flex-basis: 100% !important;
+}
+
+.pagination span,
+.pagination a {
+    padding: 8px 16px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 30px !important;
+    /* Pill */
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid transparent !important;
+    min-width: 30px !important;
+    text-align: center !important;
+}
+
+.pagination .current {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3) !important;
+}
+
+.pagination a:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    transform: scale(1.05) !important;
+}
+
+/* ========== RESPONSIVE DESIGN - STANDARDIZED BREAKPOINTS ========== */
+
+/* 1. Laptops & Small Desktops - 1366px */
+@media (max-width: 1366px) {
+
+    .row,
+    #load-post {
+        grid-template-columns: repeat(auto-fill, minmax(clamp(160px, 18vw, 180px), 1fr)) !important;
+        gap: clamp(12px, 1.5vw, 14px) !important;
     }
 
     #mjeed-logo {
-        color: #e50914 !important;
-        font-size: 24px !important;
-        /* Fixed size */
-        font-weight: 800 !important;
-        text-decoration: none !important;
-        margin-left: 0 !important;
-        letter-spacing: -0.5px !important;
-        text-shadow: 0 2px 10px rgba(229, 9, 20, 0.3) !important;
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-        line-height: 1 !important;
-    }
-
-    .mjeed-logo-container {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        margin-left: 20px !important;
-    }
-
-    .mjeed-logo-subtitle {
-        font-size: 9px !important;
-        color: rgba(255, 255, 255, 0.6) !important;
-        margin-top: 2px !important;
-        white-space: nowrap !important;
-        font-weight: normal !important;
-    }
-
-    #mjeed-logo:hover {
-        transform: scale(1.05) !important;
-    }
-
-    #mjeed-nav {
-        display: flex !important;
-        gap: 20px !important;
-        margin-right: 30px !important;
+        font-size: clamp(20px, 2.5vw, 22px) !important;
     }
 
     #mjeed-nav a {
-        color: rgba(255, 255, 255, 0.7) !important;
-        text-decoration: none !important;
-        font-size: 14px !important;
-        /* Fixed size */
-        font-weight: 500 !important;
-        transition: all 0.3s ease !important;
-        position: relative !important;
-        padding: 6px 12px !important;
-        border-radius: 20px !important;
-        /* Pill Hover */
+        font-size: clamp(12px, 1.5vw, 13px) !important;
+    }
+}
+
+/* 2. Tablets (Landscape) - 992px */
+@media (max-width: 992px) {
+
+    .row,
+    #load-post {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: clamp(10px, 1.3vw, 12px) !important;
     }
 
-    #mjeed-nav a:hover {
-        color: #ffffff !important;
-        background: rgba(255, 255, 255, 0.1) !important;
+    #mjeed-logo {
+        font-size: clamp(18px, 2.3vw, 20px) !important;
     }
 
-    #mjeed-nav a::after {
+    .title {
+        font-size: clamp(12px, 1.5vw, 13px) !important;
+    }
+
+    .mjeed-info-title {
+        font-size: clamp(13px, 1.6vw, 14px) !important;
+    }
+
+    .mjeed-btn {
+        height: clamp(32px, 4vw, 36px) !important;
+        width: clamp(32px, 4vw, 36px) !important;
+        font-size: clamp(14px, 1.8vw, 16px) !important;
+    }
+
+    .mjeed-btn-play {
+        font-size: clamp(13px, 1.6vw, 14px) !important;
+        width: auto !important;
+        padding: 0 16px !important;
+    }
+}
+
+/* 3. Tablets (Portrait) - 768px */
+@media (max-width: 768px) {
+    #mjeed-header {
+        height: calc(55px + env(safe-area-inset-top)) !important;
+        padding: env(safe-area-inset-top) max(3%, env(safe-area-inset-right)) 0 max(3%, env(safe-area-inset-left)) !important;
+    }
+
+    #mjeed-logo {
+        font-size: clamp(16px, 2.1vw, 18px) !important;
+        margin-left: 0 !important;
+    }
+
+    .mjeed-logo-container {
+        margin-left: clamp(5px, 1.2vw, 10px) !important;
+    }
+
+    #mjeed-nav {
+        gap: clamp(6px, 1.2vw, 10px) !important;
+        margin-right: clamp(5px, 1.2vw, 10px) !important;
+    }
+
+    #mjeed-nav a {
+        font-size: clamp(11px, 1.4vw, 12px) !important;
+        padding: clamp(4px, 0.8vw, 6px) clamp(8px, 1.5vw, 12px) !important;
+    }
+
+    #mjeed-nav a[href*="category"],
+    #mjeed-nav a[href*="episodes"] {
         display: none !important;
     }
 
     #mjeed-search-icon {
-        margin-right: auto !important;
-        font-size: 20px !important;
-        /* Fixed size */
-        cursor: pointer !important;
-        color: rgba(255, 255, 255, 0.7) !important;
-        padding: 8px !important;
-        transition: all 0.3s ease !important;
-        border-radius: 50% !important;
+        font-size: clamp(16px, 2vw, 18px) !important;
     }
 
-    #mjeed-search-icon:hover {
-        color: #ffffff !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        transform: scale(1.1) !important;
-    }
-
-    /* ========== MAIN CONTENT ========== */
     body.mjeed-browsing .sec-line {
-        padding-top: calc(80px + env(safe-area-inset-top)) !important;
-        /* Fixed padding */
-        padding-left: max(4%, env(safe-area-inset-left));
-        padding-right: max(4%, env(safe-area-inset-right));
-        padding-bottom: max(40px, env(safe-area-inset-bottom));
-        background-color: #000000;
-        min-height: 100vh;
-        margin-top: 0 !important;
-        display: block !important;
+        padding-top: calc(60px + env(safe-area-inset-top)) !important;
+        padding-left: max(3%, env(safe-area-inset-left));
+        padding-right: max(3%, env(safe-area-inset-right));
+        padding-bottom: max(20px, env(safe-area-inset-bottom)) !important;
     }
 
-    .containers,
-    .container-fluid {
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    /* ========== GRID CONTAINER ========== */
-    .row {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
-        /* Fixed min width */
-        gap: 16px !important;
-        /* Slightly larger gap */
-        margin: 0 !important;
-        padding: 0 !important;
-        align-items: stretch !important;
-        justify-content: start !important;
-    }
-
+    .row,
     #load-post {
-        width: 100% !important;
-        padding: 0 !important;
-        display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
-        gap: 16px !important;
-        align-items: stretch !important;
-        justify-content: start !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: clamp(8px, 1.2vw, 10px) !important;
     }
 
-    /* ========== POSTER ITEMS ========== */
-    .post {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        opacity: 1 !important;
-        animation: fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards !important;
-    }
-
-    .post:nth-child(1) {
-        animation-delay: 0.05s !important;
-    }
-
-    .post:nth-child(2) {
-        animation-delay: 0.1s !important;
-    }
-
-    .post:nth-child(3) {
-        animation-delay: 0.15s !important;
-    }
-
-    .post:nth-child(4) {
-        animation-delay: 0.2s !important;
-    }
-
-    .post:nth-child(5) {
-        animation-delay: 0.25s !important;
-    }
-
-    .post:nth-child(6) {
-        animation-delay: 0.3s !important;
-    }
-
-    .block-post {
-        position: relative !important;
-        width: 100% !important;
-        border-radius: 8px !important;
-        /* Fixed radius */
-        overflow: hidden !important;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        cursor: pointer !important;
-        background: #000000 !important;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-        display: block !important;
-        visibility: visible !important;
-        border: 3px solid transparent !important;
-    }
-
-    /* Mjeed Hover Effect */
-    .block-post:hover {
-        transform: scale(1.03) !important;
-        z-index: 100 !important;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7) !important;
-        border-color: rgba(255, 255, 255, 0.8) !important;
-        /* Focus Ring */
-    }
-
-    /* Gradient Overlay on Hover */
-    .block-post::after {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%) !important;
-        opacity: 0 !important;
-        transition: opacity 0.4s ease !important;
-        z-index: 2 !important;
-        pointer-events: none !important;
-    }
-
-    .block-post:hover::after {
-        opacity: 1 !important;
-    }
-
-    /* ========== POSTER IMAGE ========== */
-    .posterThumb {
-        position: relative !important;
-        width: 100% !important;
-        padding-bottom: 155% !important;
-        /* Slightly Taller Aspect Ratio */
-        overflow: hidden !important;
-        background: #1c1c1e !important;
-    }
-
-    .imgBg {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        background-size: cover !important;
-        background-position: center !important;
-        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-        filter: brightness(1) !important;
-    }
-
-    .block-post:hover .imgBg {
-        transform: scale(1.02) !important;
-    }
-
-    /* ========== EPISODE BADGE (Glass Pill) ========== */
-    .episodeNum {
-        position: absolute !important;
-        top: 10px !important;
-        left: 10px !important;
-        background: rgba(0, 0, 0, 0.6) !important;
-        backdrop-filter: blur(4px) !important;
-        -webkit-backdrop-filter: blur(4px) !important;
-        color: #ffffff !important;
-        padding: 6px 12px !important;
-        border-radius: 20px !important;
-        font-size: 14px !important;
-        /* Bigger on Desktop */
-        font-weight: 700 !important;
-        z-index: 3 !important;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 5px !important;
-        line-height: 1 !important;
-        border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    }
-
-    .episodeNum span:first-child {
-        font-size: 10px !important;
-        opacity: 0.8 !important;
-        font-weight: 500 !important;
-        text-transform: uppercase !important;
-    }
-
-    .episodeNum span:last-child {
-        font-size: 12px !important;
-        font-weight: 700 !important;
-        margin-top: 0 !important;
-    }
-
-    /* ========== RIBBON (Glass) ========== */
-    .ribbon {
-        position: absolute !important;
-        top: 10px !important;
-        right: -20px !important;
-        background: rgba(255, 215, 0, 0.8) !important;
-        backdrop-filter: blur(10px) !important;
-        color: #000000 !important;
-        padding: 4px 30px !important;
-        font-size: 10px !important;
-        font-weight: 800 !important;
-        transform: rotate(45deg) !important;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-        z-index: 4 !important;
-    }
-
-    /* ========== TITLE ========== */
     .title {
-        padding: 10px !important;
-        font-size: 13px !important;
-        font-weight: 600 !important;
-        color: rgba(255, 255, 255, 0.9) !important;
-        text-align: center !important;
-        display: -webkit-box !important;
-        -webkit-line-clamp: 2 !important;
-        line-clamp: 2 !important;
-        -webkit-box-orient: vertical !important;
-        overflow: hidden !important;
-        background: transparent !important;
-        transition: color 0.3s ease !important;
-        line-height: 1.4 !important;
-        min-height: auto !important;
-        position: absolute !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%) !important;
-        border-bottom-left-radius: 8px !important;
-        border-bottom-right-radius: 8px !important;
-    }
-
-    .block-post:hover .title {
-        color: #ffffff !important;
-    }
-
-    .block-post a {
-        text-decoration: none !important;
-        display: block !important;
-    }
-
-    /* ========== INFO OVERLAY (On Hover) ========== */
-    .mjeed-info {
-        position: absolute !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        padding: 10px !important;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.9) 60%, transparent 100%) !important;
-        opacity: 0 !important;
-        transform: translateY(10px) !important;
-        transition: all 0.3s ease !important;
-        z-index: 5 !important;
-        border-bottom-left-radius: 8px !important;
-        border-bottom-right-radius: 8px !important;
-        border-top: none !important;
-    }
-
-    .block-post:hover .mjeed-info {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-
-    .mjeed-info-title {
-        color: #ffffff !important;
-        font-size: 14px !important;
-        font-weight: 700 !important;
-        margin-bottom: 8px !important;
-        line-height: 1.3 !important;
-    }
-
-    .mjeed-info-actions {
-        display: flex !important;
-        gap: 8px !important;
-        align-items: center !important;
+        font-size: clamp(11px, 1.4vw, 12px) !important;
+        padding: clamp(6px, 1vw, 8px) !important;
+        min-height: clamp(40px, 5vh, 45px) !important;
     }
 
     .mjeed-btn {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        height: 32px !important;
-        width: 32px !important;
-        border-radius: 50% !important;
-        border: none !important;
-        background: rgba(255, 255, 255, 0.2) !important;
-        cursor: pointer !important;
-        transition: all 0.2s ease !important;
-        font-size: 14px !important;
-        backdrop-filter: blur(5px) !important;
-        color: white !important;
-    }
-
-    .mjeed-btn:hover {
-        background: #ffffff !important;
-        color: #000000 !important;
-        transform: scale(1.1) !important;
+        height: clamp(28px, 3.8vw, 32px) !important;
+        width: clamp(28px, 3.8vw, 32px) !important;
+        font-size: clamp(12px, 1.6vw, 14px) !important;
     }
 
     .mjeed-btn-play {
+        font-size: clamp(11px, 1.4vw, 12px) !important;
+        padding: 0 clamp(10px, 1.5vw, 12px) !important;
         width: auto !important;
-        padding: 0 16px !important;
-        border-radius: 20px !important;
-        /* Pill */
-        background: #ffffff !important;
-        border: none !important;
-        color: #000000 !important;
-        font-weight: 700 !important;
-        font-size: 12px !important;
-        gap: 4px !important;
     }
 
-    .mjeed-btn-play:hover {
-        background: rgba(255, 255, 255, 0.9) !important;
-        transform: scale(1.05) !important;
+    .mjeed-info {
+        padding: clamp(6px, 1vw, 8px) !important;
     }
 
-    /* ========== PAGINATION ========== */
-    .pagination {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        margin: 40px 0 20px 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-        flex-basis: 100% !important;
+    .mjeed-info-title {
+        font-size: clamp(12px, 1.5vw, 13px) !important;
+        margin-bottom: clamp(3px, 0.6vh, 4px) !important;
+    }
+
+    .episodeNum {
+        font-size: clamp(10px, 1.3vw, 11px) !important;
+        /* Smaller on Mobile */
+        padding: 4px 8px !important;
+        top: 6px !important;
+        left: 6px !important;
+    }
+
+    .episodeNum span:first-child {
+        font-size: clamp(8px, 1.1vw, 9px) !important;
+    }
+
+    .episodeNum span:last-child {
+        font-size: clamp(10px, 1.3vw, 11px) !important;
     }
 
     .pagination span,
     .pagination a {
-        padding: 8px 16px !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        color: rgba(255, 255, 255, 0.8) !important;
-        border-radius: 30px !important;
-        /* Pill */
-        text-decoration: none !important;
-        font-size: 14px !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease !important;
-        border: 1px solid transparent !important;
-        min-width: 30px !important;
-        text-align: center !important;
+        padding: clamp(5px, 0.8vw, 6px) clamp(10px, 1.5vw, 12px) !important;
+        font-size: clamp(11px, 1.4vw, 12px) !important;
+    }
+}
+
+/* 4. Large Mobiles - 668px */
+@media (max-width: 668px) {
+    #mjeed-header {
+        height: calc(50px + env(safe-area-inset-top)) !important;
     }
 
-    .pagination .current {
-        background: #ffffff !important;
-        color: #000000 !important;
-        font-weight: 700 !important;
-        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3) !important;
+    .row,
+    #load-post {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: clamp(6px, 1vw, 8px) !important;
     }
 
-    .pagination a:hover {
-        background: rgba(255, 255, 255, 0.2) !important;
-        color: #ffffff !important;
-        transform: scale(1.05) !important;
+    .title {
+        font-size: clamp(10px, 1.3vw, 11px) !important;
+        padding: clamp(5px, 0.8vw, 6px) !important;
+        min-height: clamp(35px, 4.5vh, 40px) !important;
+    }
+}
+
+/* 5. Medium Mobiles - 580px */
+@media (max-width: 580px) {
+    body.mjeed-browsing .sec-line {
+        padding-left: max(2.5%, env(safe-area-inset-left));
+        padding-right: max(2.5%, env(safe-area-inset-right));
     }
 
-    /* ========== RESPONSIVE DESIGN - STANDARDIZED BREAKPOINTS ========== */
-
-    /* 1. Laptops & Small Desktops - 1366px */
-    @media (max-width: 1366px) {
-
-        .row,
-        #load-post {
-            grid-template-columns: repeat(auto-fill, minmax(clamp(160px, 18vw, 180px), 1fr)) !important;
-            gap: clamp(12px, 1.5vw, 14px) !important;
-        }
-
-        #mjeed-logo {
-            font-size: clamp(20px, 2.5vw, 22px) !important;
-        }
-
-        #mjeed-nav a {
-            font-size: clamp(12px, 1.5vw, 13px) !important;
-        }
+    .row,
+    #load-post {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: clamp(8px, 1.3vw, 10px) !important;
     }
 
-    /* 2. Tablets (Landscape) - 992px */
-    @media (max-width: 992px) {
+    .title {
+        font-size: clamp(11px, 1.4vw, 12px) !important;
+        line-height: 1.3 !important;
+    }
+}
 
-        .row,
-        #load-post {
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: clamp(10px, 1.3vw, 12px) !important;
-        }
-
-        #mjeed-logo {
-            font-size: clamp(18px, 2.3vw, 20px) !important;
-        }
-
-        .title {
-            font-size: clamp(12px, 1.5vw, 13px) !important;
-        }
-
-        .mjeed-info-title {
-            font-size: clamp(13px, 1.6vw, 14px) !important;
-        }
-
-        .mjeed-btn {
-            height: clamp(32px, 4vw, 36px) !important;
-            width: clamp(32px, 4vw, 36px) !important;
-            font-size: clamp(14px, 1.8vw, 16px) !important;
-        }
-
-        .mjeed-btn-play {
-            font-size: clamp(13px, 1.6vw, 14px) !important;
-            width: auto !important;
-            padding: 0 16px !important;
-        }
+/* 6. Small Mobiles - 480px */
+@media (max-width: 480px) {
+    #mjeed-header {
+        height: calc(48px + env(safe-area-inset-top)) !important;
+        padding: env(safe-area-inset-top) max(2%, env(safe-area-inset-right)) 0 max(2%, env(safe-area-inset-left)) !important;
     }
 
-    /* 3. Tablets (Portrait) - 768px */
-    @media (max-width: 768px) {
-        #mjeed-header {
-            height: calc(55px + env(safe-area-inset-top)) !important;
-            padding: env(safe-area-inset-top) max(3%, env(safe-area-inset-right)) 0 max(3%, env(safe-area-inset-left)) !important;
-        }
-
-        #mjeed-logo {
-            font-size: clamp(16px, 2.1vw, 18px) !important;
-            margin-left: 0 !important;
-        }
-
-        .mjeed-logo-container {
-            margin-left: clamp(5px, 1.2vw, 10px) !important;
-        }
-
-        #mjeed-nav {
-            gap: clamp(6px, 1.2vw, 10px) !important;
-            margin-right: clamp(5px, 1.2vw, 10px) !important;
-        }
-
-        #mjeed-nav a {
-            font-size: clamp(11px, 1.4vw, 12px) !important;
-            padding: clamp(4px, 0.8vw, 6px) clamp(8px, 1.5vw, 12px) !important;
-        }
-
-        #mjeed-nav a[href*="category"],
-        #mjeed-nav a[href*="episodes"] {
-            display: none !important;
-        }
-
-        #mjeed-search-icon {
-            font-size: clamp(16px, 2vw, 18px) !important;
-        }
-
-        body.mjeed-browsing .sec-line {
-            padding-top: calc(60px + env(safe-area-inset-top)) !important;
-            padding-left: max(3%, env(safe-area-inset-left));
-            padding-right: max(3%, env(safe-area-inset-right));
-            padding-bottom: max(20px, env(safe-area-inset-bottom)) !important;
-        }
-
-        .row,
-        #load-post {
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: clamp(8px, 1.2vw, 10px) !important;
-        }
-
-        .title {
-            font-size: clamp(11px, 1.4vw, 12px) !important;
-            padding: clamp(6px, 1vw, 8px) !important;
-            min-height: clamp(40px, 5vh, 45px) !important;
-        }
-
-        .mjeed-btn {
-            height: clamp(28px, 3.8vw, 32px) !important;
-            width: clamp(28px, 3.8vw, 32px) !important;
-            font-size: clamp(12px, 1.6vw, 14px) !important;
-        }
-
-        .mjeed-btn-play {
-            font-size: clamp(11px, 1.4vw, 12px) !important;
-            padding: 0 clamp(10px, 1.5vw, 12px) !important;
-            width: auto !important;
-        }
-
-        .mjeed-info {
-            padding: clamp(6px, 1vw, 8px) !important;
-        }
-
-        .mjeed-info-title {
-            font-size: clamp(12px, 1.5vw, 13px) !important;
-            margin-bottom: clamp(3px, 0.6vh, 4px) !important;
-        }
-
-        .episodeNum {
-            font-size: clamp(10px, 1.3vw, 11px) !important;
-            /* Smaller on Mobile */
-            padding: 4px 8px !important;
-            top: 6px !important;
-            left: 6px !important;
-        }
-
-        .episodeNum span:first-child {
-            font-size: clamp(8px, 1.1vw, 9px) !important;
-        }
-
-        .episodeNum span:last-child {
-            font-size: clamp(10px, 1.3vw, 11px) !important;
-        }
-
-        .pagination span,
-        .pagination a {
-            padding: clamp(5px, 0.8vw, 6px) clamp(10px, 1.5vw, 12px) !important;
-            font-size: clamp(11px, 1.4vw, 12px) !important;
-        }
+    #mjeed-logo {
+        font-size: clamp(14px, 1.9vw, 16px) !important;
+        margin-left: 0 !important;
     }
 
-    /* 4. Large Mobiles - 668px */
-    @media (max-width: 668px) {
-        #mjeed-header {
-            height: calc(50px + env(safe-area-inset-top)) !important;
-        }
-
-        .row,
-        #load-post {
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: clamp(6px, 1vw, 8px) !important;
-        }
-
-        .title {
-            font-size: clamp(10px, 1.3vw, 11px) !important;
-            padding: clamp(5px, 0.8vw, 6px) !important;
-            min-height: clamp(35px, 4.5vh, 40px) !important;
-        }
+    .mjeed-logo-container {
+        margin-left: clamp(3px, 0.8vw, 5px) !important;
     }
 
-    /* 5. Medium Mobiles - 580px */
-    @media (max-width: 580px) {
-        body.mjeed-browsing .sec-line {
-            padding-left: max(2.5%, env(safe-area-inset-left));
-            padding-right: max(2.5%, env(safe-area-inset-right));
-        }
-
-        .row,
-        #load-post {
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: clamp(8px, 1.3vw, 10px) !important;
-        }
-
-        .title {
-            font-size: clamp(11px, 1.4vw, 12px) !important;
-            line-height: 1.3 !important;
-        }
+    #mjeed-nav {
+        gap: clamp(4px, 0.9vw, 6px) !important;
+        margin-right: clamp(3px, 0.8vw, 5px) !important;
     }
 
-    /* 6. Small Mobiles - 480px */
-    @media (max-width: 480px) {
-        #mjeed-header {
-            height: calc(48px + env(safe-area-inset-top)) !important;
-            padding: env(safe-area-inset-top) max(2%, env(safe-area-inset-right)) 0 max(2%, env(safe-area-inset-left)) !important;
-        }
-
-        #mjeed-logo {
-            font-size: clamp(14px, 1.9vw, 16px) !important;
-            margin-left: 0 !important;
-        }
-
-        .mjeed-logo-container {
-            margin-left: clamp(3px, 0.8vw, 5px) !important;
-        }
-
-        #mjeed-nav {
-            gap: clamp(4px, 0.9vw, 6px) !important;
-            margin-right: clamp(3px, 0.8vw, 5px) !important;
-        }
-
-        #mjeed-nav a {
-            font-size: clamp(10px, 1.2vw, 11px) !important;
-            padding: clamp(3px, 0.6vw, 4px) clamp(6px, 1.2vw, 8px) !important;
-        }
-
-        body.mjeed-browsing .sec-line {
-            padding-left: max(2%, env(safe-area-inset-left));
-            padding-right: max(2%, env(safe-area-inset-right));
-            padding-bottom: max(15px, env(safe-area-inset-bottom)) !important;
-        }
-
-        .row,
-        #load-post {
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: clamp(6px, 1vw, 8px) !important;
-        }
-
-        .title {
-            font-size: clamp(10px, 1.3vw, 11px) !important;
-            padding: clamp(4px, 0.7vw, 5px) !important;
-        }
-
-        .episodeNum {
-            font-size: clamp(8px, 1.1vw, 9px) !important;
-            padding: clamp(2px, 0.4vw, 2px) clamp(4px, 0.8vw, 5px) !important;
-        }
+    #mjeed-nav a {
+        font-size: clamp(10px, 1.2vw, 11px) !important;
+        padding: clamp(3px, 0.6vw, 4px) clamp(6px, 1.2vw, 8px) !important;
     }
 
-    /* ========== ANIMATIONS ========== */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    body.mjeed-browsing .sec-line {
+        padding-left: max(2%, env(safe-area-inset-left));
+        padding-right: max(2%, env(safe-area-inset-right));
+        padding-bottom: max(15px, env(safe-area-inset-bottom)) !important;
     }
 
-    /* Force visibility */
-    .post,
-    .col-xs-5th,
-    .col-sm-5th,
-    .col-md-5th,
-    .col-lg-5th,
-    .posterThumb,
-    .imgBg {
-        display: block !important;
-        visibility: visible !important;
+    .row,
+    #load-post {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: clamp(6px, 1vw, 8px) !important;
     }
 
-    article.post {
-        display: block !important;
+    .title {
+        font-size: clamp(10px, 1.3vw, 11px) !important;
+        padding: clamp(4px, 0.7vw, 5px) !important;
     }
 
-    .row>*,
-    #load-post>* {
-        display: block !important;
-        visibility: visible !important;
+    .episodeNum {
+        font-size: clamp(8px, 1.1vw, 9px) !important;
+        padding: clamp(2px, 0.4vw, 2px) clamp(4px, 0.8vw, 5px) !important;
+    }
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    /* ========== SCROLLBAR ========== */
-    ::-webkit-scrollbar {
-        width: 8px !important;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Force visibility */
+.post,
+.col-xs-5th,
+.col-sm-5th,
+.col-md-5th,
+.col-lg-5th,
+.posterThumb,
+.imgBg {
+    display: block !important;
+    visibility: visible !important;
+}
+
+article.post {
+    display: block !important;
+}
+
+.row>*,
+#load-post>* {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    border: 2px solid #000000 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ========== MJEED PROFILE BUTTON ANIMATION (OVERLAY METHOD) ========== */
+#mjeed-nav #mjeed-profile-btn {
+    position: relative !important;
+    color: #ffffff !important;
+    /* Solid white text */
+    overflow: hidden !important;
+    /* Contain the shine */
+    background: transparent !important;
+    /* No background on the element itself */
+
+    /* Styling */
+    font-weight: 900 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    padding: 6px 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+
+    /* Reset clip properties */
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* The Shine Element */
+#mjeed-nav #mjeed-profile-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    /* Start off-screen left */
+    width: 50% !important;
+    height: 100% !important;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(255, 255, 255, 0) 100%) !important;
+    transform: skewX(-25deg) !important;
+    /* Tilt the shine */
+    animation: shinePass 3s infinite !important;
+    pointer-events: none !important;
+}
+
+#mjeed-nav #mjeed-profile-btn:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+#mjeed-nav #mjeed-profile-btn:hover::before {
+    animation: shinePass 1s infinite !important;
+    /* Faster on hover */
+}
+
+@keyframes shinePass {
+    0% {
+        left: -100%;
     }
 
-    ::-webkit-scrollbar-track {
-        background: #000000 !important;
+    20% {
+        left: 200%;
     }
 
-    ::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.2) !important;
-        border-radius: 4px !important;
-        border: 2px solid #000000 !important;
+    /* Move across quickly */
+    100% {
+        left: 200%;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255, 0.4) !important;
-    }
+    /* Wait */
+}
 
-    /* ========== MJEED PROFILE BUTTON ANIMATION (OVERLAY METHOD) ========== */
-    #mjeed-nav #mjeed-profile-btn {
-        position: relative !important;
-        color: #ffffff !important;
-        /* Solid white text */
-        overflow: hidden !important;
-        /* Contain the shine */
-        background: transparent !important;
-        /* No background on the element itself */
+/* ========== MY LIST MODAL ========== */
+.mjeed-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 10000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    animation: fadeIn 0.3s ease !important;
+    padding: 20px !important;
+}
 
-        /* Styling */
-        font-weight: 900 !important;
-        letter-spacing: 1px !important;
-        text-transform: uppercase !important;
-        padding: 6px 16px !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        border-radius: 20px !important;
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
-        display: inline-block !important;
-        text-decoration: none !important;
+.mjeed-modal-content {
+    width: 90% !important;
+    max-width: 1200px !important;
+    background: #181818 !important;
+    border-radius: 16px !important;
+    padding: 40px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    position: relative !important;
+}
 
-        /* Reset clip properties */
-        -webkit-background-clip: border-box !important;
-        background-clip: border-box !important;
-        -webkit-text-fill-color: #ffffff !important;
-    }
+.mjeed-modal-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 30px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 20px !important;
+}
 
-    /* The Shine Element */
-    #mjeed-nav #mjeed-profile-btn::before {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: -100% !important;
-        /* Start off-screen left */
-        width: 50% !important;
-        height: 100% !important;
-        background: linear-gradient(to right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.8) 50%,
-                rgba(255, 255, 255, 0) 100%) !important;
-        transform: skewX(-25deg) !important;
-        /* Tilt the shine */
-        animation: shinePass 3s infinite !important;
-        pointer-events: none !important;
-    }
+.mjeed-modal-title {
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
 
-    #mjeed-nav #mjeed-profile-btn:hover {
-        box-shadow: 0 0 25px rgba(255, 255, 255, 0.4) !important;
-        border-color: rgba(255, 255, 255, 0.6) !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-    }
+.mjeed-modal-close {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+    color: white !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    border-radius: 50% !important;
+}
 
-    #mjeed-nav #mjeed-profile-btn:hover::before {
-        animation: shinePass 1s infinite !important;
-        /* Faster on hover */
-    }
+.mjeed-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.1) !important;
+}
 
-    @keyframes shinePass {
-        0% {
-            left: -100%;
-        }
+.mjeed-modal-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+    gap: 16px !important;
+    margin-top: 20px !important;
+}
 
-        20% {
-            left: 200%;
-        }
+.mjeed-modal-empty {
+    grid-column: 1 / -1 !important;
+    text-align: center !important;
+    padding: 80px 20px !important;
+    color: #999 !important;
+    font-size: 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
 
-        /* Move across quickly */
-        100% {
-            left: 200%;
-        }
+.mjeed-modal-empty-icon {
+    font-size: 64px !important;
+    margin-bottom: 20px !important;
+    opacity: 0.5 !important;
+}
 
-        /* Wait */
-    }
+.mjeed-modal-card {
+    background: #000 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    position: relative !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
 
-    /* ========== MY LIST MODAL ========== */
-    .mjeed-modal-overlay {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        background: rgba(0, 0, 0, 0.85) !important;
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
-        z-index: 10000 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        animation: fadeIn 0.3s ease !important;
-        padding: 20px !important;
-    }
+.mjeed-modal-card:hover {
+    transform: scale(1.05) !important;
+    z-index: 10 !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6) !important;
+}
 
+.mjeed-modal-poster {
+    position: relative !important;
+    width: 100% !important;
+    padding-bottom: 150% !important;
+    background: #222 !important;
+    overflow: hidden !important;
+}
+
+.mjeed-modal-poster-img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: transform 0.4s ease !important;
+}
+
+.mjeed-modal-card:hover .mjeed-modal-poster-img {
+    transform: scale(1.1) !important;
+}
+
+.mjeed-modal-overlay-actions {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: 12px !important;
+    z-index: 2 !important;
+}
+
+.mjeed-modal-card:hover .mjeed-modal-overlay-actions {
+    opacity: 1 !important;
+}
+
+.mjeed-modal-card-title {
+    color: white !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    line-height: 1.3 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+.mjeed-modal-btn-group {
+    display: flex !important;
+    gap: 8px !important;
+}
+
+.mjeed-modal-btn {
+    flex: 1 !important;
+    padding: 8px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+}
+
+.mjeed-modal-btn-watch {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+.mjeed-modal-btn-watch:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.mjeed-modal-btn-remove {
+    background: rgba(229, 9, 20, 0.8) !important;
+    color: white !important;
+    max-width: 32px !important;
+}
+
+.mjeed-modal-btn-remove:hover {
+    background: #e50914 !important;
+}
+
+/* Mobile Responsiveness for Modal */
+@media (max-width: 768px) {
     .mjeed-modal-content {
-        width: 90% !important;
-        max-width: 1200px !important;
-        background: #181818 !important;
-        border-radius: 16px !important;
-        padding: 40px !important;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
-        max-height: 90vh !important;
-        overflow-y: auto !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        position: relative !important;
-    }
-
-    .mjeed-modal-header {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        margin-bottom: 30px !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-        padding-bottom: 20px !important;
-    }
-
-    .mjeed-modal-title {
-        color: #ffffff !important;
-        font-size: 28px !important;
-        font-weight: 700 !important;
-        margin: 0 !important;
-    }
-
-    .mjeed-modal-close {
-        background: rgba(255, 255, 255, 0.1) !important;
-        border: none !important;
-        color: white !important;
-        font-size: 20px !important;
-        cursor: pointer !important;
-        padding: 0 !important;
-        width: 36px !important;
-        height: 36px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        transition: all 0.2s ease !important;
-        border-radius: 50% !important;
-    }
-
-    .mjeed-modal-close:hover {
-        background: rgba(255, 255, 255, 0.2) !important;
-        transform: scale(1.1) !important;
+        padding: 20px !important;
+        width: 95% !important;
     }
 
     .mjeed-modal-grid {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-        gap: 16px !important;
-        margin-top: 20px !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
     }
 
-    .mjeed-modal-empty {
-        grid-column: 1 / -1 !important;
-        text-align: center !important;
-        padding: 80px 20px !important;
-        color: #999 !important;
-        font-size: 18px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
+    .mjeed-modal-title {
+        font-size: 20px !important;
     }
+}
 
-    .mjeed-modal-empty-icon {
-        font-size: 64px !important;
-        margin-bottom: 20px !important;
-        opacity: 0.5 !important;
+@media (max-width: 480px) {
+    .mjeed-modal-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
-
-    .mjeed-modal-card {
-        background: #000 !important;
-        border-radius: 8px !important;
-        overflow: hidden !important;
-        cursor: pointer !important;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-        position: relative !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-    }
-
-    .mjeed-modal-card:hover {
-        transform: scale(1.05) !important;
-        z-index: 10 !important;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6) !important;
-    }
-
-    .mjeed-modal-poster {
-        position: relative !important;
-        width: 100% !important;
-        padding-bottom: 150% !important;
-        background: #222 !important;
-        overflow: hidden !important;
-    }
-
-    .mjeed-modal-poster-img {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        background-size: cover !important;
-        background-position: center !important;
-        transition: transform 0.4s ease !important;
-    }
-
-    .mjeed-modal-card:hover .mjeed-modal-poster-img {
-        transform: scale(1.1) !important;
-    }
-
-    .mjeed-modal-overlay-actions {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%) !important;
-        opacity: 0 !important;
-        transition: opacity 0.3s ease !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-end !important;
-        padding: 12px !important;
-        z-index: 2 !important;
-    }
-
-    .mjeed-modal-card:hover .mjeed-modal-overlay-actions {
-        opacity: 1 !important;
-    }
-
-    .mjeed-modal-card-title {
-        color: white !important;
-        font-size: 13px !important;
-        font-weight: 700 !important;
-        margin-bottom: 10px !important;
-        line-height: 1.3 !important;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-    }
-
-    .mjeed-modal-btn-group {
-        display: flex !important;
-        gap: 8px !important;
-    }
-
-    .mjeed-modal-btn {
-        flex: 1 !important;
-        padding: 8px !important;
-        border: none !important;
-        border-radius: 4px !important;
-        font-weight: 700 !important;
-        font-size: 12px !important;
-        cursor: pointer !important;
-        transition: all 0.2s ease !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 4px !important;
-    }
-
-    .mjeed-modal-btn-watch {
-        background: #ffffff !important;
-        color: #000000 !important;
-    }
-
-    .mjeed-modal-btn-watch:hover {
-        background: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .mjeed-modal-btn-remove {
-        background: rgba(229, 9, 20, 0.8) !important;
-        color: white !important;
-        max-width: 32px !important;
-    }
-
-    .mjeed-modal-btn-remove:hover {
-        background: #e50914 !important;
-    }
-
-    /* Mobile Responsiveness for Modal */
-    @media (max-width: 768px) {
-        .mjeed-modal-content {
-            padding: 20px !important;
-            width: 95% !important;
-        }
-
-        .mjeed-modal-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 10px !important;
-        }
-
-        .mjeed-modal-title {
-            font-size: 20px !important;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .mjeed-modal-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-        }
-    }
+}

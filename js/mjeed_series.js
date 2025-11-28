@@ -101,6 +101,15 @@
         syncMyListButton();
         addAnimationStyles();
 
+        // Ensure header is visible
+        const header = document.getElementById('mjeed-header');
+        if (header) {
+            header.style.setProperty('display', 'flex', 'important');
+            header.style.setProperty('visibility', 'visible', 'important');
+            header.style.setProperty('opacity', '1', 'important');
+            header.style.setProperty('z-index', '9999', 'important');
+        }
+
         console.log('✅ Page transformation complete!');
     }
 
@@ -549,7 +558,14 @@
                 const spans = episodeNumEl.querySelectorAll('span');
                 if (spans.length > 1) {
                     episodeNumber = spans[1].textContent.trim();
+                } else if (spans.length === 1) {
+                    episodeNumber = spans[0].textContent.trim();
+                } else {
+                    episodeNumber = episodeNumEl.textContent.trim();
                 }
+
+                // Clean up if it contains "الحلقة"
+                episodeNumber = episodeNumber.replace('الحلقة', '').trim();
             }
 
             // بناء HTML من الصفر - استخدام imgSer بدلاً من imgBg

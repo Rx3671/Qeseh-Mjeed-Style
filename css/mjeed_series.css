@@ -720,3 +720,65 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
         padding-bottom: 8px !important;
     }
 }
+
+/* 6. Extra Small Mobiles - 320px */
+@media (max-width: 320px) {
+
+    .mjeed-series-hero {
+        height: clamp(260px, 42dvh, 320px) !important;
+        min-height: clamp(220px, 35dvh, 280px) !important;
+        margin-top: calc(40px + env(safe-area-inset-top)) !important;
+    }
+
+    .mjeed-hero-content {
+        left: max(3%, env(safe-area-inset-left)) !important;
+        right: max(3%, env(safe-area-inset-right)) !important;
+        bottom: max(10px, env(safe-area-inset-bottom)) !important;
+        padding: 0 !important;
+    }
+
+    .mjeed-series-title {
+        font-size: clamp(16px, 5.5vw, 22px) !important;
+        line-height: 1.25 !important;
+        max-width: 92% !important;
+        margin-bottom: 6px !important;
+    }
+
+    .mjeed-series-story {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+        max-height: 40px !important;
+        /* يمنع تمدد القصة */
+        overflow: hidden !important;
+    }
+
+    .mjeed-hero-buttons {
+        flex-direction: row !important;
+        gap: 8px !important;
+        margin-top: 6px !important;
+    }
+
+    .mjeed-play-btn,
+    .mjeed-mylist-btn {
+        flex: 1 !important;
+        font-size: 12px !important;
+        padding: 8px 12px !important;
+        height: 36px !important;
+        border-radius: 6px !important;
+    }
+
+    .mjeed-episodes-section {
+        padding: 14px max(3%, env(safe-area-inset-left)) 26px max(3%, env(safe-area-inset-right)) !important;
+    }
+
+    .mjeed-episodes-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    .mjeed-episodes-header {
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+        padding-bottom: 6px !important;
+    }
+}

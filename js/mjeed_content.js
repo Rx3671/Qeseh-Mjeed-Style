@@ -40,6 +40,16 @@
 
     // ========== MAIN FUNCTION ========== 
     function applyMjeedDesign() {
+        // Force black background immediately
+        const style = document.createElement('style');
+        style.textContent = `
+            body, html {
+                background-color: #000000 !important;
+                background: #000000 !important;
+            }
+        `;
+        document.head.appendChild(style);
+
         console.log('🎬 Mjeed Design: Starting...');
 
         // Mark touch devices (now safe to access body)
@@ -58,6 +68,7 @@
         setupScrollEffects();
         addLazyLoading();
         injectAnimationStyles(); // Moved here
+        injectDynamicStyles();
         injectMadeWithLove();
 
         console.log('✅ Mjeed Design: Complete!');
@@ -330,10 +341,14 @@
             // Hide title element instead of removing
 
             // Hide episode number instead of removing
+            // Episode number handling is now managed by CSS or specific page scripts
+            // We do NOT want to hide it globally here as it affects the series page
+            /*
             const episodeNum = poster.querySelector('.episodeNum');
             if (episodeNum) {
                 episodeNum.style.display = 'none';
             }
+            */
 
             // Create info overlay
             const infoOverlay = document.createElement('div');
@@ -1108,6 +1123,50 @@
         if (document.head) {
             document.head.appendChild(style);
         }
+    }
+
+    // ========== INJECT DYNAMIC STYLES ==========
+    function injectDynamicStyles() {
+        if (!CONFIG.STYLES) return;
+
+        let cssVariables = ':root {\n';
+
+        // 1. Flatten and add all base styles
+        const categories = ['COLORS', 'SPACING', 'TYPOGRAPHY', 'LAYOUT'];
+        categories.forEach(category => {
+            if (CONFIG.STYLES[category]) {
+                Object.entries(CONFIG.STYLES[category]).forEach(([key, value]) => {
+                    cssVariables += `    ${key}: ${value};\n`;
+                });
+            }
+        });
+
+        // 2. Apply Device Specific Overrides
+        const width = window.innerWidth;
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        let deviceType = 'DESKTOP'; // Default
+
+        if (/iPad|Macintosh/i.test(userAgent) && 'ontouchend' in document) {
+            deviceType = 'IPAD';
+        } else if (/iPhone|iPod/i.test(userAgent)) {
+            deviceType = 'IPHONE';
+        } else if (width > 1600) {
+            deviceType = 'LARGE_SCREEN';
+        }
+
+        if (CONFIG.STYLES.DEVICES && CONFIG.STYLES.DEVICES[deviceType]) {
+            console.log(`📱 Applying styles for: ${deviceType}`);
+            Object.entries(CONFIG.STYLES.DEVICES[deviceType]).forEach(([key, value]) => {
+                cssVariables += `    ${key}: ${value} !important;\n`;
+            });
+        }
+
+        cssVariables += '}\n';
+
+        const style = document.createElement('style');
+        style.id = 'mjeed-dynamic-styles';
+        style.textContent = cssVariables;
+        document.head.appendChild(style);
     }
 
 })();
