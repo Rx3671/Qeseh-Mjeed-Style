@@ -1,0 +1,73 @@
+{
+  "manifest_version": 3,
+  "name": "Qeseh Modern Style",
+  "version": "2.1.0",
+  "description": "اعاده تصميم كامل لموقع قصه عشق  مع اضافات بطله",
+  "author": "Made with ❤️ by Mjeed Alanazi",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://wwv.qeseh.com/*",
+        "*://qeseh.com/*",
+        "*://www.qeseh.com/*",
+        "*://*.qeseh.com/*",
+        "*://qesen.net/watch*",
+        "*://*.qesen.net/watch*"
+      ],
+      "css": [
+        "css/mjeed_main.css",
+        "css/mjeed_series.css",
+        "css/mjeed_watch.css"
+      ],
+      "js": [
+        "js/config.js",
+        "js/utils.js",
+        "js/mjeed_content.js",
+        "js/mjeed_series.js",
+        "js/mjeed_watch.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://wwv.qeseh.com/*",
+    "*://qeseh.com/*",
+    "*://*.qeseh.com/*",
+    "*://qesen.net/*",
+    "*://*.qesen.net/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "قصة عشق Mjeed Style"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*",
+        "css/*",
+        "js/*",
+        "profile.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

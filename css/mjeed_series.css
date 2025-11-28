@@ -1,0 +1,723 @@
+/*
+ * Series Page Netflix Style - TRUE ZERO SPACING & DYNAMIC UNITS
+ * Merged with Apple TV Aesthetic (Glassmorphism, Pills, Smooth Motion)
+ */
+
+/* ========== FORCE VISIBILITY (IOS FIX) ========== */
+html,
+body {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* ========== KEEP VIDEO PLAYER VISIBLE ========== */
+.secContainer,
+.getEmbed,
+.modern-player-container,
+.singleInfo {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* ========== HIDE ONLY VISUAL PARTS OF SINGLESERIES ========== */
+.singleSeries .cover,
+.singleSeries .info>h1,
+.singleSeries .info>.story,
+.singleSeries .info>.tax,
+.singleSeries .info>.favList {
+    display: none !important;
+}
+
+/* Keep singleSeries container but make it invisible for data extraction */
+.singleSeries {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+.singleSeries * {
+    position: static !important;
+}
+
+/* ========== FIX WHITE FRAME - HIDE ROW IN SECCONTAINER ========== */
+.secContainer .containers .row,
+.secContainer>.containers>.row,
+.secContainer .row {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Keep getEmbed visible */
+.secContainer .getEmbed {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* ========== HERO SECTION - RESPONSIVE HEIGHT ========== */
+.mjeed-series-hero {
+    position: relative !important;
+    background: #141414 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    margin-top: 60px !important;
+    height: clamp(500px, 80vh, 700px) !important;
+    min-height: clamp(400px, 60vh, 600px) !important;
+}
+
+/* HERO CONTENT - Mobile First (bottom positioning) */
+.mjeed-hero-content {
+    position: absolute !important;
+    left: max(4%, env(safe-area-inset-left)) !important;
+    right: max(4%, env(safe-area-inset-right)) !important;
+    z-index: 999 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    top: auto !important;
+    bottom: 0 !important;
+}
+
+/* HERO POSTER - COMPLETELY STABLE, NO ZOOM */
+.mjeed-hero-poster {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    transition: none !important;
+    transform: none !important;
+    transform-origin: center !important;
+    will-change: auto !important;
+    animation: none !important;
+    pointer-events: none !important;
+    backface-visibility: hidden !important;
+}
+
+.mjeed-hero-poster::after {
+    content: '' !important;
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(20, 20, 20, 0.2) 0%, #141414 90%) !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+
+/* ========== CONTENT SECTION ========== */
+.mjeed-series-title {
+    font-size: clamp(24px, 5vw, 48px) !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    margin: 0 0 clamp(12px, 2vh, 20px) 0 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -1px !important;
+    max-width: 800px !important;
+    z-index: 3 !important;
+    position: relative !important;
+}
+
+.mjeed-series-story {
+    font-size: clamp(11px, 1.8vw, 16px) !important;
+    color: #e5e5e5 !important;
+    line-height: 1.7 !important;
+    margin-bottom: clamp(14px, 2.5vh, 24px) !important;
+    max-width: 700px;
+}
+
+.mjeed-series-cast {
+    font-size: clamp(12px, 1.5vw, 14px) !important;
+    color: #d4d4d4 !important;
+    margin-bottom: clamp(20px, 3vh, 30px) !important;
+    max-width: 700px !important;
+}
+
+.mjeed-series-cast span {
+    color: #999 !important;
+    font-weight: 700 !important;
+    margin-left: 6px !important;
+}
+
+.mjeed-series-cast a {
+    color: #e5e5e5 !important;
+    text-decoration: none !important;
+    transition: color 0.2s !important;
+}
+
+.mjeed-series-cast a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+.mjeed-series-cast b {
+    margin: 0 4px !important;
+    color: #666 !important;
+}
+
+/* ========== BUTTONS (Apple TV Style Pills) ========== */
+.mjeed-hero-buttons {
+    display: flex !important;
+    gap: 16px !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.mjeed-play-btn,
+.mjeed-mylist-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(6px, 1vw, 10px) !important;
+    padding: clamp(10px, 1.5vh, 14px) clamp(16px, 3vw, 28px) !important;
+    border-radius: 50px !important;
+    font-size: clamp(13px, 1.8vw, 16px) !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.mjeed-play-btn {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+.mjeed-play-btn:hover,
+.mjeed-play-btn:focus {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #000000 !important;
+    transform: scale(1.08) !important;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3) !important;
+    text-decoration: none !important;
+}
+
+.mjeed-mylist-btn {
+    background: rgba(109, 109, 110, 0.7) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.mjeed-mylist-btn:hover {
+    background: rgba(109, 109, 110, 0.9) !important;
+    transform: scale(1.05) !important;
+}
+
+.mjeed-next-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(6px, 1vw, 10px) !important;
+    padding: clamp(10px, 1.5vh, 14px) clamp(16px, 3vw, 28px) !important;
+    border-radius: 50px !important;
+    font-size: clamp(13px, 1.8vw, 16px) !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.mjeed-next-btn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(1.05) !important;
+}
+
+.mjeed-next-btn.disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    background: rgba(109, 109, 110, 0.3) !important;
+}
+
+.singleSeries .info>.tax,
+.singleSeries .info>.favList {
+    display: none !important;
+}
+
+/* Keep singleSeries container but make it invisible for data extraction */
+.singleSeries {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+.singleSeries * {
+    position: static !important;
+}
+
+/* ========== FIX WHITE FRAME - HIDE ROW IN SECCONTAINER ========== */
+.secContainer .containers .row,
+.secContainer>.containers>.row,
+.secContainer .row {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Keep getEmbed visible */
+.secContainer .getEmbed {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* ========== HERO SECTION - RESPONSIVE HEIGHT ========== */
+.mjeed-series-hero {
+    position: relative !important;
+    background: #141414 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    margin-top: 60px !important;
+    height: clamp(500px, 80vh, 700px) !important;
+    min-height: clamp(400px, 60vh, 600px) !important;
+}
+
+/* HERO CONTENT - Mobile First (bottom positioning) */
+.mjeed-hero-content {
+    position: absolute !important;
+    left: max(4%, env(safe-area-inset-left)) !important;
+    right: max(4%, env(safe-area-inset-right)) !important;
+    z-index: 999 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    top: auto !important;
+    bottom: 0 !important;
+}
+
+/* HERO POSTER - COMPLETELY STABLE, NO ZOOM */
+.mjeed-hero-poster {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    transition: none !important;
+    transform: none !important;
+    transform-origin: center !important;
+    will-change: auto !important;
+    animation: none !important;
+    pointer-events: none !important;
+    backface-visibility: hidden !important;
+}
+
+.mjeed-hero-poster::after {
+    content: '' !important;
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(20, 20, 20, 0.2) 0%, #141414 90%) !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+
+/* ========== CONTENT SECTION ========== */
+.mjeed-series-title {
+    font-size: clamp(24px, 5vw, 48px) !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    margin: 0 0 clamp(12px, 2vh, 20px) 0 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -1px !important;
+    max-width: 800px !important;
+    z-index: 3 !important;
+    position: relative !important;
+}
+
+.mjeed-series-story {
+    font-size: clamp(11px, 1.8vw, 16px) !important;
+    color: #e5e5e5 !important;
+    line-height: 1.7 !important;
+    margin-bottom: clamp(14px, 2.5vh, 24px) !important;
+    max-width: 700px;
+}
+
+.mjeed-series-cast {
+    font-size: clamp(12px, 1.5vw, 14px) !important;
+    color: #d4d4d4 !important;
+    margin-bottom: clamp(20px, 3vh, 30px) !important;
+    max-width: 700px !important;
+}
+
+.mjeed-series-cast span {
+    color: #999 !important;
+    font-weight: 700 !important;
+    margin-left: 6px !important;
+}
+
+.mjeed-series-cast a {
+    color: #e5e5e5 !important;
+    text-decoration: none !important;
+    transition: color 0.2s !important;
+}
+
+.mjeed-series-cast a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+.mjeed-series-cast b {
+    margin: 0 4px !important;
+    color: #666 !important;
+}
+
+.mjeed-series-content>.containers>.row,
+.mjeed-series-content .postEp,
+.mjeed-series-content .col-lg-4th,
+.mjeed-series-content .col-md-4th,
+.mjeed-series-content .col-sm-4th,
+.mjeed-series-content .col-xs-4th {
+    display: none !important;
+}
+
+/* SPECIFICITY FIX: Override netflix_style.css padding */
+body.mjeed-browsing .mjeed-series-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.mjeed-series-content .mjeed-episodes-section {
+    margin-top: 40px !important;
+}
+
+.mjeed-series-content .mjeed-episode-card .poster {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.mjeed-series-content .mjeed-episode-card .imgSer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: transform 0.4s ease !important;
+}
+
+/* Fix Zoom Issue: No scale on hover */
+.mjeed-episode-card .block-post:hover .imgSer {
+    transform: none !important;
+}
+
+/* ========== NEW STYLES ========== */
+/* Ensure specificity with body.mjeed-browsing */
+body.mjeed-browsing .mjeed-episode-card .title {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    z-index: 5 !important;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0) 0%, #141414 100%) !important;
+    padding: 12px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    justify-content: flex-end !important;
+}
+
+body.mjeed-browsing .mjeed-episode-card .watch-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 20px !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    margin-top: 6px !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    width: fit-content !important;
+}
+
+body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Default (Large Screens > 1366px) */
+.mjeed-episodes-grid {
+    grid-template-columns: repeat(8, 1fr) !important;
+    gap: 16px !important;
+}
+
+/* 1. Laptops & Small Desktops - 1366px */
+@media (max-width: 1366px) {
+    .mjeed-series-hero {
+        height: clamp(480px, 75vh, 680px) !important;
+        min-height: clamp(380px, 55vh, 580px) !important;
+    }
+
+    .mjeed-series-title {
+        font-size: clamp(32px, 4.5vw, 44px) !important;
+        max-width: 750px !important;
+    }
+
+    .mjeed-series-story {
+        font-size: clamp(13px, 1.7vw, 15px) !important;
+        max-width: 650px !important;
+    }
+
+    .mjeed-episodes-grid {
+        grid-template-columns: repeat(6, 1fr) !important;
+        gap: clamp(12px, 1.5vw, 14px) !important;
+    }
+}
+
+/* 2. Tablets (Landscape) - 992px */
+@media (max-width: 992px) {
+    .mjeed-series-hero {
+        height: clamp(450px, 70vh, 600px) !important;
+        min-height: clamp(350px, 50vh, 500px) !important;
+    }
+
+    .mjeed-series-title {
+        font-size: clamp(28px, 4vw, 38px) !important;
+        max-width: 650px !important;
+    }
+
+    .mjeed-series-story {
+        font-size: clamp(12px, 1.6vw, 14px) !important;
+        max-width: 600px !important;
+        margin-bottom: clamp(16px, 2vh, 20px) !important;
+    }
+
+    .mjeed-series-cast {
+        font-size: clamp(11px, 1.4vw, 13px) !important;
+        margin-bottom: clamp(20px, 2.5vh, 26px) !important;
+    }
+
+    .mjeed-play-btn,
+    .mjeed-mylist-btn {
+        font-size: clamp(13px, 1.7vw, 15px) !important;
+        padding: clamp(10px, 1.3vh, 12px) clamp(18px, 2.5vw, 24px) !important;
+    }
+
+    .mjeed-episodes-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: clamp(10px, 1.3vw, 12px) !important;
+    }
+
+    .mjeed-episodes-header {
+        font-size: clamp(22px, 3vw, 28px) !important;
+    }
+}
+
+/* 3. Tablets (Portrait) - 768px (iPad) */
+@media (max-width: 768px) {
+    .mjeed-series-hero {
+        height: clamp(400px, 60vh, 500px) !important;
+        min-height: clamp(320px, 45vh, 450px) !important;
+        margin-top: calc(55px + env(safe-area-inset-top)) !important;
+    }
+
+    .mjeed-hero-content {
+        left: max(3%, env(safe-area-inset-left)) !important;
+        right: max(3%, env(safe-area-inset-right)) !important;
+        bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    }
+
+    .mjeed-series-title {
+        font-size: clamp(24px, 3.5vw, 32px) !important;
+        max-width: 100% !important;
+        margin-bottom: clamp(12px, 1.8vh, 16px) !important;
+    }
+
+    .mjeed-series-story {
+        font-size: clamp(12px, 1.5vw, 14px) !important;
+        max-width: 100% !important;
+        margin-bottom: clamp(14px, 2vh, 18px) !important;
+        line-height: 1.5 !important;
+    }
+
+    .mjeed-series-cast {
+        font-size: clamp(11px, 1.3vw, 13px) !important;
+        margin-bottom: clamp(18px, 2.2vh, 22px) !important;
+        max-width: 100% !important;
+    }
+
+    .mjeed-play-btn,
+    .mjeed-mylist-btn {
+        font-size: clamp(13px, 1.6vw, 15px) !important;
+        padding: 12px 24px !important;
+    }
+
+    .mjeed-episodes-section {
+        padding: clamp(16px, 3vh, 24px) max(3%, env(safe-area-inset-left)) clamp(32px, 6vh, 48px) max(3%, env(safe-area-inset-right));
+    }
+
+    .mjeed-episodes-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: clamp(10px, 1.5vw, 14px) !important;
+    }
+
+    .mjeed-episodes-header {
+        font-size: clamp(20px, 2.8vw, 24px) !important;
+    }
+}
+
+/* 4. Large Mobiles - 668px */
+@media (max-width: 668px) {
+    .mjeed-series-hero {
+        height: clamp(380px, 55vh, 480px) !important;
+        min-height: clamp(300px, 40vh, 400px) !important;
+    }
+
+    .mjeed-hero-content {
+        left: max(2.5%, env(safe-area-inset-left)) !important;
+        right: max(2.5%, env(safe-area-inset-right)) !important;
+    }
+
+    .mjeed-series-title {
+        font-size: clamp(22px, 3.2vw, 28px) !important;
+        margin-bottom: clamp(10px, 1.6vh, 14px) !important;
+    }
+
+    .mjeed-series-story {
+        font-size: clamp(11px, 1.4vw, 13px) !important;
+        margin-bottom: clamp(12px, 1.8vh, 16px) !important;
+        line-height: 1.4 !important;
+    }
+
+    .mjeed-episodes-section {
+        padding: clamp(14px, 2.5vh, 20px) max(2.5%, env(safe-area-inset-left)) clamp(28px, 5vh, 40px) max(2.5%, env(safe-area-inset-right));
+    }
+
+    .mjeed-episodes-header {
+        font-size: clamp(18px, 2.5vw, 22px) !important;
+    }
+}
+
+/* 5. Medium Mobiles - 580px */
+@media (max-width: 580px) {
+    .mjeed-series-hero {
+        height: clamp(360px, 50vh, 450px) !important;
+        min-height: clamp(280px, 38vh, 380px) !important;
+    }
+
+    .mjeed-hero-content {
+        left: max(2%, env(safe-area-inset-left)) !important;
+        right: max(2%, env(safe-area-inset-right)) !important;
+    }
+
+    .mjeed-series-title {
+        font-size: clamp(20px, 3vw, 26px) !important;
+    }
+
+    .mjeed-episodes-section {
+        padding: clamp(12px, 2vh, 18px) max(2%, env(safe-area-inset-left)) clamp(24px, 4.5vh, 36px) max(2%, env(safe-area-inset-right));
+    }
+
+    .mjeed-episodes-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* Force 2 columns */
+        gap: 10px !important;
+    }
+
+    .mjeed-episodes-header {
+        font-size: clamp(16px, 2.3vw, 20px) !important;
+    }
+}
+
+/* 6. Small Mobiles - 480px (iPhone) */
+@media (max-width: 480px) {
+    .mjeed-series-hero {
+        height: clamp(340px, 45vh, 420px) !important;
+        /* Compact hero */
+        min-height: clamp(260px, 35vh, 350px) !important;
+        margin-top: calc(50px + env(safe-area-inset-top)) !important;
+    }
+
+    .mjeed-hero-content {
+        left: max(2%, env(safe-area-inset-left)) !important;
+        right: max(2%, env(safe-area-inset-right)) !important;
+        bottom: max(8px, env(safe-area-inset-bottom)) !important;
+        padding: 0 !important;
+    }
+
+    .mjeed-series-title {
+        font-size: clamp(20px, 6vw, 26px) !important;
+        /* Larger title */
+        margin-bottom: 8px !important;
+        line-height: 1.2 !important;
+    }
+
+    .mjeed-series-story {
+        font-size: 12px !important;
+    }
+
+    .mjeed-hero-buttons {
+        flex-direction: row !important;
+        gap: 10px !important;
+    }
+
+    .mjeed-play-btn,
+    .mjeed-mylist-btn {
+        flex: 1 !important;
+        font-size: 13px !important;
+        padding: 10px 16px !important;
+        /* Touch friendly */
+        height: 40px !important;
+    }
+
+    .mjeed-episodes-section {
+        padding: 16px max(2%, env(safe-area-inset-left)) 32px max(2%, env(safe-area-inset-right));
+    }
+
+    .mjeed-episodes-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* Ensure 2 columns */
+        gap: 10px !important;
+    }
+
+    .mjeed-episodes-header {
+        font-size: 18px !important;
+        margin-bottom: 12px !important;
+        padding-bottom: 8px !important;
+    }
+}

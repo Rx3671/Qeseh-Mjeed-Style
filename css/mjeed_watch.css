@@ -1,0 +1,420 @@
+/*
+ * Apple TV Style Watch Page CSS - Unique Namespace
+ * Prefix: nfx-watch-
+ * Dynamic Units: vh/vw + CSS Variables
+ */
+
+/* ========== HIDE ORIGINAL CONTENT & HEADER ========== */
+/* Only on watch pages where our script is active */
+body.nfx-watch-active .secContainer,
+body.nfx-watch-active .sec-line,
+body.nfx-watch-active .singleSeries,
+body.nfx-watch-active #mjeed-header {
+    display: none !important;
+}
+
+/* ========== MAIN CONTAINER ========== */
+.nfx-watch-main-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--mjeed-black);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--mjeed-text);
+    direction: rtl;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ========== HERO SECTION ========== */
+.nfx-watch-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+
+/* Background Poster */
+.nfx-watch-poster-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    z-index: 0;
+    /* Dark overlay + Blur */
+    filter: brightness(0.4) blur(40px);
+    /* Heavy Apple TV Blur */
+    transform: scale(1.1);
+}
+
+/* Gradient Overlay */
+.nfx-watch-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.6) 60%,
+            var(--mjeed-black) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ========== BACK BUTTON (Renamed: return-nav) ========== */
+.nfx-watch-return-nav {
+    position: absolute;
+    top: 30px;
+    right: 4%;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-slow);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-sm);
+    user-select: none;
+}
+
+.nfx-watch-return-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nfx-watch-back-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    margin-top: -3px;
+}
+
+/* ========== CONTENT WRAPPER ========== */
+.nfx-watch-content-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 94%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 50px;
+    margin-top: 80px;
+}
+
+/* ========== INFO SECTION ========== */
+.nfx-watch-info {
+    text-align: right;
+}
+
+.nfx-watch-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
+}
+
+.nfx-watch-story {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    max-width: 900px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== SERVERS SECTION ========== */
+.nfx-watch-servers-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* White Bar Style Label */
+.nfx-watch-servers-label {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.nfx-watch-servers-label::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Target the moved list specifically */
+.nfx-watch-servers-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* Apple TV Style Server Buttons */
+.nfx-watch-servers-list li {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: var(--blur-md) !important;
+    -webkit-backdrop-filter: var(--blur-md) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50px !important;
+    padding: 12px 20px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: var(--transition-slow) !important;
+    float: none !important;
+    margin: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    box-shadow: var(--shadow-sm) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+}
+
+.nfx-watch-servers-list li:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05) translateY(-2px) !important;
+    box-shadow: var(--shadow-md) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: #fff !important;
+}
+
+.nfx-watch-servers-list li.active {
+    background: #ffffff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Show Names (Span and Em) */
+.nfx-watch-servers-list li span {
+    display: inline-block !important;
+    padding: 0 !important;
+    float: none !important;
+    color: inherit !important;
+}
+
+.nfx-watch-servers-list li em {
+    display: inline-block !important;
+    font-style: normal !important;
+    color: inherit !important;
+    opacity: 0.7 !important;
+    font-size: 0.9em !important;
+    margin-right: 6px !important;
+}
+
+/* ========== PLAYER SECTION ========== */
+.nfx-watch-player-container {
+    width: 100%;
+    max-width: 1200px;
+    max-height: 675px;
+    margin: 0 auto;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    aspect-ratio: 16/9;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Force player elements to fit - ABSOLUTE POSITIONING RESTORED */
+.nfx-watch-player-container .getEmbed,
+.nfx-watch-player-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    z-index: 1;
+}
+
+/* ========== RESPONSIVE DESIGN - STANDARDIZED BREAKPOINTS ========== */
+
+/* 2. Tablets (Landscape) - 992px */
+@media (max-width: 992px) {
+    .nfx-watch-title {
+        font-size: 32px;
+    }
+
+    .nfx-watch-story {
+        font-size: 15px;
+    }
+
+    .nfx-watch-servers-label {
+        font-size: 20px;
+    }
+
+    .nfx-watch-content-wrapper {
+        width: 92%;
+    }
+}
+
+/* 3. Tablets (Portrait) - 768px (iPad) */
+@media (max-width: 768px) {
+    .nfx-watch-title {
+        font-size: 28px;
+    }
+
+    .nfx-watch-story {
+        font-size: 15px;
+        /* Improved readability */
+        max-width: 100%;
+        padding: 0 5px;
+    }
+
+    .nfx-watch-servers-label {
+        font-size: 18px;
+        width: fit-content;
+    }
+
+    .nfx-watch-servers-list li {
+        flex: 1 1 auto;
+        padding: 14px 24px !important;
+        /* Larger touch target */
+        font-size: 14px !important;
+    }
+
+    .nfx-watch-return-nav {
+        top: 20px;
+        right: 5%;
+        padding: 12px 20px;
+        /* Larger touch target */
+        font-size: 15px;
+    }
+
+    .nfx-watch-content-wrapper {
+        margin-top: 70px;
+        width: 90%;
+        gap: 25px;
+    }
+
+    .nfx-watch-player-container {
+        max-width: 100%;
+        border-radius: 0;
+        /* Full width on tablet */
+        border-left: none;
+        border-right: none;
+    }
+}
+
+/* 4. Large Mobiles - 668px */
+@media (max-width: 668px) {
+    .nfx-watch-title {
+        font-size: 26px;
+    }
+
+    .nfx-watch-story {
+        font-size: 14px;
+    }
+
+    .nfx-watch-servers-list li {
+        padding: 12px 20px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* 5. Medium Mobiles - 580px */
+@media (max-width: 580px) {
+    .nfx-watch-title {
+        font-size: 24px;
+    }
+
+    .nfx-watch-content-wrapper {
+        width: 92%;
+        gap: 20px;
+    }
+
+    .nfx-watch-servers-label {
+        font-size: 16px;
+    }
+}
+
+/* 6. Small Mobiles - 480px (iPhone) */
+@media (max-width: 480px) {
+    .nfx-watch-title {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .nfx-watch-story {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .nfx-watch-return-nav {
+        top: 15px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .nfx-watch-servers-list {
+        gap: 10px !important;
+    }
+
+    .nfx-watch-servers-list li {
+        padding: 12px 18px !important;
+        /* Optimized touch target */
+        font-size: 12px !important;
+        flex: 1 1 45%;
+        /* 2 per row approx */
+        text-align: center;
+        justify-content: center;
+    }
+
+    .nfx-watch-content-wrapper {
+        width: 94%;
+        gap: 20px;
+        margin-top: 60px;
+    }
+
+    .nfx-watch-player-container {
+        margin-left: -3%;
+        /* Pull to edges */
+        width: 106%;
+        max-width: 106%;
+    }
+}
