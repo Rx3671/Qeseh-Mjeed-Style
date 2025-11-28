@@ -410,6 +410,7 @@ body.mjeed-browsing .mjeed-series-content {
     opacity: 1 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
+
     position: relative !important;
     z-index: 10 !important;
 }
@@ -437,6 +438,17 @@ body.mjeed-browsing .mjeed-series-content {
     transform: none !important;
 }
 
+/* Enable clicking on episodes (Fix for touch devices overriding main css) */
+.mjeed-episode-card .block-post a {
+    pointer-events: auto !important;
+}
+
+/* Active Episode Highlight */
+.mjeed-episode-card .block-post.active-episode {
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2) !important;
+}
+
 /* ========== NEW STYLES ========== */
 /* Ensure specificity with body.mjeed-browsing */
 body.mjeed-browsing .mjeed-episode-card .title {
@@ -457,6 +469,7 @@ body.mjeed-browsing .mjeed-episode-card .title {
     justify-content: flex-end !important;
 }
 
+/* Copied Button Style from mjeed_main.css */
 body.mjeed-browsing .mjeed-episode-card .watch-btn {
     display: flex !important;
     align-items: center !important;
@@ -472,6 +485,7 @@ body.mjeed-browsing .mjeed-episode-card .watch-btn {
     transition: all 0.2s ease !important;
     cursor: pointer !important;
     width: fit-content !important;
+    border: none !important;
 }
 
 body.mjeed-browsing .mjeed-episode-card .watch-btn:hover {
