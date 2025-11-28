@@ -72,6 +72,52 @@ const CONFIG = {
         EPISODE_DATA_TTL: 3600000, // 1 hour in milliseconds
         SERIES_DATA_TTL: 7200000, // 2 hours
         MAX_CACHE_SIZE: 100 // maximum cached items
+    },
+
+    // Dynamic Styles Configuration
+    STYLES: {
+        COLORS: {
+            '--mjeed-black': '#000000',
+            '--mjeed-dark-gray': '#141414',
+            '--mjeed-light-gray': '#2f2f2f',
+            '--mjeed-text': '#ffffff',
+            '--mjeed-text-muted': '#b3b3b3',
+            '--mjeed-primary': '#e50914',
+            '--mjeed-overlay': 'rgba(0, 0, 0, 0.5)'
+        },
+        SPACING: {
+            '--spacing-xs': '4px',
+            '--spacing-sm': '8px',
+            '--spacing-md': '16px',
+            '--spacing-lg': '24px',
+            '--spacing-xl': '48px'
+        },
+        TYPOGRAPHY: {
+            '--font-size-base': '16px',
+            '--font-size-sm': '14px',
+            '--font-size-lg': '18px',
+            '--font-weight-normal': '400',
+            '--font-weight-bold': '700'
+        },
+        LAYOUT: {
+            '--header-height': '60px',
+            '--sidebar-width': '250px',
+            '--content-max-width': '1600px'
+        },
+        DEVICES: {
+            IPAD: {
+                '--font-size-base': '15px',
+                '--header-height': '55px'
+            },
+            IPHONE: {
+                '--font-size-base': '14px',
+                '--header-height': '50px'
+            },
+            LARGE_SCREEN: {
+                '--font-size-base': '18px',
+                '--content-max-width': '1800px'
+            }
+        }
     }
 };
 
