@@ -22,21 +22,24 @@
       "css": [
         "css/mjeed_main.css",
         "css/mjeed_series.css",
-        "css/mjeed_watch.css"
+        "css/mjeed_watch.css",
+        "css/mjeed_movie.css"
       ],
       "js": [
         "js/config.js",
         "js/utils.js",
         "js/mjeed_content.js",
         "js/mjeed_series.js",
-        "js/mjeed_watch.js"
+        "js/mjeed_watch.js",
+        "js/mjeed_movie.js"
       ],
       "run_at": "document_start"
     }
   ],
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "contextMenus"
   ],
   "host_permissions": [
     "*://wwv.qeseh.com/*",
@@ -45,6 +48,15 @@
     "*://qesen.net/*",
     "*://*.qesen.net/*"
   ],
+  "commands": {
+    "toggle-design": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Toggle Mjeed Design"
+    }
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

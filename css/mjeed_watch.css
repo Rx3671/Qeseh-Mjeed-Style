@@ -1,20 +1,18 @@
 /*
- * Apple TV Style Watch Page CSS - Unique Namespace
- * Prefix: nfx-watch-
- * Dynamic Units: vh/vw + CSS Variables
+ * Mjeed Style Watch Page CSS
  */
 
 /* ========== HIDE ORIGINAL CONTENT & HEADER ========== */
 /* Only on watch pages where our script is active */
-body.nfx-watch-active .secContainer,
-body.nfx-watch-active .sec-line,
-body.nfx-watch-active .singleSeries,
-body.nfx-watch-active #mjeed-header {
+body.mjeed-watch-active .secContainer,
+body.mjeed-watch-active .sec-line,
+body.mjeed-watch-active .singleSeries,
+body.mjeed-watch-active #mjeed-header {
     display: none !important;
 }
 
 /* ========== MAIN CONTAINER ========== */
-.nfx-watch-main-container {
+.mjeed-watch-main-container {
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -27,7 +25,7 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* ========== HERO SECTION ========== */
-.nfx-watch-hero {
+.mjeed-watch-hero {
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -38,7 +36,7 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* Background Poster */
-.nfx-watch-poster-bg {
+.mjeed-watch-poster-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -49,12 +47,12 @@ body.nfx-watch-active #mjeed-header {
     z-index: 0;
     /* Dark overlay + Blur */
     filter: brightness(0.4) blur(40px);
-    /* Heavy Apple TV Blur */
+    /* Heavy Blur */
     transform: scale(1.1);
 }
 
 /* Gradient Overlay */
-.nfx-watch-hero::after {
+.mjeed-watch-hero::after {
     content: '';
     position: absolute;
     top: 0;
@@ -70,7 +68,7 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* ========== BACK BUTTON (Renamed: return-nav) ========== */
-.nfx-watch-return-nav {
+.mjeed-watch-return-nav {
     position: absolute;
     top: 30px;
     right: 4%;
@@ -93,14 +91,14 @@ body.nfx-watch-active #mjeed-header {
     user-select: none;
 }
 
-.nfx-watch-return-nav:hover {
+.mjeed-watch-return-nav:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
     box-shadow: var(--shadow-md);
     border-color: rgba(255, 255, 255, 0.3);
 }
 
-.nfx-watch-back-icon {
+.mjeed-watch-back-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,7 +107,7 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* ========== CONTENT WRAPPER ========== */
-.nfx-watch-content-wrapper {
+.mjeed-watch-content-wrapper {
     position: relative;
     z-index: 10;
     width: 94%;
@@ -123,11 +121,11 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* ========== INFO SECTION ========== */
-.nfx-watch-info {
+.mjeed-watch-info {
     text-align: right;
 }
 
-.nfx-watch-title {
+.mjeed-watch-title {
     font-size: 36px;
     font-weight: 700;
     margin: 0 0 15px 0;
@@ -136,7 +134,7 @@ body.nfx-watch-active #mjeed-header {
     line-height: 1.1;
 }
 
-.nfx-watch-story {
+.mjeed-watch-story {
     font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
@@ -145,13 +143,13 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* ========== SERVERS SECTION ========== */
-.nfx-watch-servers-container {
+.mjeed-watch-servers-container {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 /* White Bar Style Label */
-.nfx-watch-servers-label {
+.mjeed-watch-servers-label {
     font-size: 20px;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 20px;
@@ -167,7 +165,7 @@ body.nfx-watch-active #mjeed-header {
     box-shadow: none;
 }
 
-.nfx-watch-servers-label::before {
+.mjeed-watch-servers-label::before {
     content: '';
     display: block;
     width: 6px;
@@ -178,7 +176,7 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* Target the moved list specifically */
-.nfx-watch-servers-list {
+.mjeed-watch-servers-list {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 15px !important;
@@ -187,8 +185,8 @@ body.nfx-watch-active #mjeed-header {
     list-style: none !important;
 }
 
-/* Apple TV Style Server Buttons */
-.nfx-watch-servers-list li {
+/* Mjeed Style Server Buttons */
+.mjeed-watch-servers-list li {
     background: rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: var(--blur-md) !important;
     -webkit-backdrop-filter: var(--blur-md) !important;
@@ -212,7 +210,7 @@ body.nfx-watch-active #mjeed-header {
     white-space: nowrap !important;
 }
 
-.nfx-watch-servers-list li:hover {
+.mjeed-watch-servers-list li:hover {
     background: rgba(255, 255, 255, 0.2) !important;
     transform: scale(1.05) translateY(-2px) !important;
     box-shadow: var(--shadow-md) !important;
@@ -220,7 +218,7 @@ body.nfx-watch-active #mjeed-header {
     color: #fff !important;
 }
 
-.nfx-watch-servers-list li.active {
+.mjeed-watch-servers-list li.active {
     background: #ffffff !important;
     color: #000 !important;
     border-color: #fff !important;
@@ -229,14 +227,14 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* Show Names (Span and Em) */
-.nfx-watch-servers-list li span {
+.mjeed-watch-servers-list li span {
     display: inline-block !important;
     padding: 0 !important;
     float: none !important;
     color: inherit !important;
 }
 
-.nfx-watch-servers-list li em {
+.mjeed-watch-servers-list li em {
     display: inline-block !important;
     font-style: normal !important;
     color: inherit !important;
@@ -246,7 +244,7 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* ========== PLAYER SECTION ========== */
-.nfx-watch-player-container {
+.mjeed-watch-player-container {
     width: 100%;
     max-width: 1200px;
     max-height: 675px;
@@ -261,8 +259,8 @@ body.nfx-watch-active #mjeed-header {
 }
 
 /* Force player elements to fit - ABSOLUTE POSITIONING RESTORED */
-.nfx-watch-player-container .getEmbed,
-.nfx-watch-player-container iframe {
+.mjeed-watch-player-container .getEmbed,
+.mjeed-watch-player-container iframe {
     width: 100% !important;
     height: 100% !important;
     border: none !important;
@@ -276,49 +274,49 @@ body.nfx-watch-active #mjeed-header {
 
 /* 2. Tablets (Landscape) - 992px */
 @media (max-width: 992px) {
-    .nfx-watch-title {
+    .mjeed-watch-title {
         font-size: 32px;
     }
 
-    .nfx-watch-story {
+    .mjeed-watch-story {
         font-size: 15px;
     }
 
-    .nfx-watch-servers-label {
+    .mjeed-watch-servers-label {
         font-size: 20px;
     }
 
-    .nfx-watch-content-wrapper {
+    .mjeed-watch-content-wrapper {
         width: 92%;
     }
 }
 
 /* 3. Tablets (Portrait) - 768px (iPad) */
 @media (max-width: 768px) {
-    .nfx-watch-title {
+    .mjeed-watch-title {
         font-size: 28px;
     }
 
-    .nfx-watch-story {
+    .mjeed-watch-story {
         font-size: 15px;
         /* Improved readability */
         max-width: 100%;
         padding: 0 5px;
     }
 
-    .nfx-watch-servers-label {
+    .mjeed-watch-servers-label {
         font-size: 18px;
         width: fit-content;
     }
 
-    .nfx-watch-servers-list li {
+    .mjeed-watch-servers-list li {
         flex: 1 1 auto;
         padding: 14px 24px !important;
         /* Larger touch target */
         font-size: 14px !important;
     }
 
-    .nfx-watch-return-nav {
+    .mjeed-watch-return-nav {
         top: 20px;
         right: 5%;
         padding: 12px 20px;
@@ -326,13 +324,13 @@ body.nfx-watch-active #mjeed-header {
         font-size: 15px;
     }
 
-    .nfx-watch-content-wrapper {
+    .mjeed-watch-content-wrapper {
         margin-top: 70px;
         width: 90%;
         gap: 25px;
     }
 
-    .nfx-watch-player-container {
+    .mjeed-watch-player-container {
         max-width: 100%;
         border-radius: 0;
         /* Full width on tablet */
@@ -343,15 +341,15 @@ body.nfx-watch-active #mjeed-header {
 
 /* 4. Large Mobiles - 668px */
 @media (max-width: 668px) {
-    .nfx-watch-title {
+    .mjeed-watch-title {
         font-size: 26px;
     }
 
-    .nfx-watch-story {
+    .mjeed-watch-story {
         font-size: 14px;
     }
 
-    .nfx-watch-servers-list li {
+    .mjeed-watch-servers-list li {
         padding: 12px 20px !important;
         font-size: 13px !important;
     }
@@ -359,43 +357,43 @@ body.nfx-watch-active #mjeed-header {
 
 /* 5. Medium Mobiles - 580px */
 @media (max-width: 580px) {
-    .nfx-watch-title {
+    .mjeed-watch-title {
         font-size: 24px;
     }
 
-    .nfx-watch-content-wrapper {
+    .mjeed-watch-content-wrapper {
         width: 92%;
         gap: 20px;
     }
 
-    .nfx-watch-servers-label {
+    .mjeed-watch-servers-label {
         font-size: 16px;
     }
 }
 
 /* 6. Small Mobiles - 480px (iPhone) */
 @media (max-width: 480px) {
-    .nfx-watch-title {
+    .mjeed-watch-title {
         font-size: 22px;
         line-height: 1.2;
     }
 
-    .nfx-watch-story {
+    .mjeed-watch-story {
         font-size: 13px;
         line-height: 1.5;
     }
 
-    .nfx-watch-return-nav {
+    .mjeed-watch-return-nav {
         top: 15px;
         padding: 10px 16px;
         font-size: 13px;
     }
 
-    .nfx-watch-servers-list {
+    .mjeed-watch-servers-list {
         gap: 10px !important;
     }
 
-    .nfx-watch-servers-list li {
+    .mjeed-watch-servers-list li {
         padding: 12px 18px !important;
         /* Optimized touch target */
         font-size: 12px !important;
@@ -405,13 +403,13 @@ body.nfx-watch-active #mjeed-header {
         justify-content: center;
     }
 
-    .nfx-watch-content-wrapper {
+    .mjeed-watch-content-wrapper {
         width: 94%;
         gap: 20px;
         margin-top: 60px;
     }
 
-    .nfx-watch-player-container {
+    .mjeed-watch-player-container {
         margin-left: -3%;
         /* Pull to edges */
         width: 106%;

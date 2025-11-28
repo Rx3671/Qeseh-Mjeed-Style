@@ -32,21 +32,61 @@ A complete visual overhaul for the Qeseh website, transforming it into a premium
 
 ---
 
+## 🌐 Supported Browsers / المتصفحات المدعومة
+
+| Browser | Support Status | Notes |
+| :--- | :--- | :--- |
+| **Google Chrome** | ✅ Fully Supported | Native support via `chrome.storage` & MV3. |
+| **Microsoft Edge** | ✅ Fully Supported | Native support. |
+| **Brave** | ✅ Fully Supported | Native support. |
+| **Orion** | ✅ Fully Supported | Optimized for WebKit & iOS. |
+| **Firefox** | ✅ Supported | Compatible via MV3 support. |
+| **Safari** | 🔄 Supported via Converter | Requires conversion using Xcode/Safari Converter. |
+
+---
+
 ## 🚀 Installation / التثبيت
 
+
+
 ### 🇬🇧 English
+
+#### Chrome, Edge, Brave, Orion
 1.  **Clone or Download:** Clone this repository or download the ZIP file and extract it.
-2.  **Open Chrome Extensions:** Go to `chrome://extensions/` in your browser.
-3.  **Enable Developer Mode:** Toggle the switch in the top-right corner.
+2.  **Open Extensions Page:**
+    *   Chrome/Brave: `chrome://extensions/`
+    *   Edge: `edge://extensions/`
+    *   Orion: `orion://extensions/`
+3.  **Enable Developer Mode:** Toggle the switch in the top-right corner (or bottom-left in Orion).
 4.  **Load Unpacked:** Click "Load unpacked" and select the folder containing this extension.
-5.  **Enjoy:** The extension is now active on Qeseh websites!
+
+#### Firefox
+1.  Open `about:debugging#/runtime/this-firefox`
+2.  Click "Load Temporary Add-on".
+3.  Select the `manifest.json` file from the extension folder.
+
+#### Safari (macOS/iOS)
+1.  You need to convert the extension using Xcode.
+2.  Run: `xcrun safari-web-extension-converter /path/to/extension/folder`
+3.  Build and run the app in Xcode.
 
 ### 🇸🇦 العربية
+
+#### كروم، إيدج، براف، أوريون
 1.  **تحميل الملفات:** قم باستنساخ المستودع أو تحميل ملف ZIP وفك الضغط عنه.
-2.  **فتح الإضافات:** اذهب إلى `chrome://extensions/` في متصفحك.
-3.  **تفعيل وضع المطور:** قم بتفعيل الزر في الزاوية العلوية اليمنى (Developer mode).
+2.  **فتح الإضافات:** اذهب إلى صفحة الإضافات في متصفحك (مثل `chrome://extensions/`).
+3.  **تفعيل وضع المطور:** قم بتفعيل الزر في الزاوية العلوية اليمنى (أو اليسرى في أوريون).
 4.  **تحميل إضافة غير مضغوطة:** اضغط على "Load unpacked" واختر المجلد الذي يحتوي على ملفات الإضافة.
-5.  **استمتع:** الإضافة تعمل الآن على مواقع قصة عشق!
+
+#### فايرفوكس
+1.  افتح `about:debugging#/runtime/this-firefox`
+2.  اضغط على "Load Temporary Add-on".
+3.  اختر ملف `manifest.json` من مجلد الإضافة.
+
+#### سفاري (ماك/أيفون)
+1.  تحتاج إلى تحويل الإضافة باستخدام Xcode.
+2.  استخدم الأمر: `xcrun safari-web-extension-converter /path/to/extension/folder`
+3.  قم ببناء وتشغيل التطبيق عبر Xcode.
 
 ---
 

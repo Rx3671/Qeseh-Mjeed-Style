@@ -1,5 +1,5 @@
 /*
- * Background Service Worker for Qeseh Netflix Extension (REFACTORED)
+ * Background Service Worker for Qeseh Mjeed Style Extension (REFACTORED)
  * Handles extension lifecycle, context menus, and communications
  * Follows Manifest V3 best practices
  */
@@ -16,7 +16,7 @@ const EXTENSION_CONFIG = {
 chrome.runtime.onInstalled.addListener(async (details) => {
     try {
         if (details.reason === 'install') {
-            console.log('🎬 Qeseh Netflix Extension Installed!');
+            console.log('🎬 Qeseh   Extension Installed!');
 
             // Set default settings
             await chrome.storage.sync.set({
@@ -35,7 +35,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
             });
 
         } else if (details.reason === 'update') {
-            console.log('✅ Qeseh Netflix Extension Updated!');
+            console.log('✅ Qeseh   Extension Updated!');
 
             // Update version
             await chrome.storage.sync.set({
@@ -80,8 +80,8 @@ async function createContextMenus() {
         });
 
         chrome.contextMenus.create({
-            id: 'toggleNetflixDesign',
-            title: 'تبديل تصميم Netflix',
+            id: 'toggle Design',
+            title: 'تبديل تصميم  ',
             contexts: ['all']
         });
 
@@ -195,7 +195,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
         try {
             const result = await chrome.storage.sync.get(['designEnabled']);
             if (result.designEnabled !== false) {
-                console.log('🎬 Netflix Style Active on:', tab.url);
+                console.log('🎬   Style Active on:', tab.url);
             }
         } catch (error) {
             console.error('Error checking design status:', error);
@@ -221,7 +221,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
                 await chrome.tabs.create({ url: EXTENSION_CONFIG.BASE_URL });
                 break;
 
-            case 'toggleNetflixDesign':
+            case 'toggle Design':
                 const result = await chrome.storage.sync.get(['designEnabled']);
                 const newState = !result.designEnabled;
                 await chrome.storage.sync.set({ designEnabled: newState });
@@ -278,4 +278,4 @@ async function updateStats() {
 // Initialize stats on load
 updateStats();
 
-console.log('🎬 Qeseh Netflix Extension - Background Service Active (Refactored V3)');
+console.log('🎬 Qeseh   Extension - Background Service Active (Refactored V3)');

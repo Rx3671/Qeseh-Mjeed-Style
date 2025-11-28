@@ -1,5 +1,5 @@
 /*
- * Apple TV Style Redesign - Clean Grid Layout (ENHANCED)
+ * Mjeed Style  - Clean Grid Layout (ENHANCED)
  * Glassmorphism, Rounded Corners, Smooth Motion
  * Based on User Preference for Black Theme
  * RESPONSIVE MODE: rem/em + CSS Variables
@@ -298,7 +298,7 @@ body.mjeed-browsing .sec-line {
     border: 3px solid transparent !important;
 }
 
-/* Apple TV Hover Effect */
+/* Mjeed Hover Effect */
 .block-post:hover {
     transform: scale(1.03) !important;
     z-index: 100 !important;

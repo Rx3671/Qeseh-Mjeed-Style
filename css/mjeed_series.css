@@ -1,6 +1,5 @@
 /*
- * Series Page Netflix Style - TRUE ZERO SPACING & DYNAMIC UNITS
- * Merged with Apple TV Aesthetic (Glassmorphism, Pills, Smooth Motion)
+ * Series Page Mjeed Style 
  */
 
 /* ========== FORCE VISIBILITY (IOS FIX) ========== */
@@ -167,7 +166,7 @@ body {
     color: #666 !important;
 }
 
-/* ========== BUTTONS (Apple TV Style Pills) ========== */
+/* ========== BUTTONS (  Style Pills) ========== */
 .mjeed-hero-buttons {
     display: flex !important;
     gap: 16px !important;
@@ -404,7 +403,7 @@ body {
     display: none !important;
 }
 
-/* SPECIFICITY FIX: Override netflix_style.css padding */
+/* SPECIFICITY FIX: Override  _style.css padding */
 body.mjeed-browsing .mjeed-series-content {
     display: block !important;
     visibility: visible !important;

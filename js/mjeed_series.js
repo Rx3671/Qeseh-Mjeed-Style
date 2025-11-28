@@ -1,17 +1,55 @@
 /*
- * Series Page Netflix Style - Fixed Version with Chrome Storage Sync
+ * Series Page Mjeed Style 
  */
 
 (function () {
     'use strict';
 
-    console.log('🎬 Netflix Series Page Script Started');
+    console.log('🎬 Mjeed Series Page Script Started');
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         setTimeout(init, 50);
     }
+
+    // SPA Navigation & Content Loading Support
+    let lastUrl = location.href;
+    let retryCount = 0;
+    const MAX_RETRIES = 20;
+    let initTimeout = null;
+
+    new MutationObserver((mutations) => {
+        const url = location.href;
+        const isSeriesUrl = url.includes('/series/') || document.querySelector('.singleSeries');
+
+        // 1. Handle URL Change
+        if (url !== lastUrl) {
+            lastUrl = url;
+            console.log('🔄 URL changed to:', url);
+            retryCount = 0; // Reset retries
+            setTimeout(init, 500);
+        }
+        // 2. Handle Content Loading (if on series page but hero missing)
+        else if (isSeriesUrl && !document.getElementById('mjeed-series-hero') && !url.includes('/movies/')) {
+            if (retryCount < MAX_RETRIES) {
+                const hasContent = document.querySelector('.singleSeries') ||
+                    document.querySelector('.singleInfo') ||
+                    document.querySelector('h1');
+
+                if (hasContent) {
+                    if (!initTimeout) {
+                        initTimeout = setTimeout(() => {
+                            console.log('DOM content detected, attempting init...');
+                            init();
+                            retryCount++;
+                            initTimeout = null;
+                        }, 200);
+                    }
+                }
+            }
+        }
+    }).observe(document, { subtree: true, childList: true });
 
     function init() {
         const isSinglePost = document.body.classList.contains('single-post');
@@ -21,6 +59,8 @@
 
         if (isMoviesUrl) {
             console.log('❌ Movie page detected, skipping series script');
+            const existingHero = document.getElementById('mjeed-series-hero');
+            if (existingHero) existingHero.remove();
             return;
         }
 
@@ -32,6 +72,8 @@
 
         if (!isSinglePost && !hasSeriesInfo && !isSeriesUrl) {
             console.log('❌ Not a series page');
+            const existingHero = document.getElementById('mjeed-series-hero');
+            if (existingHero) existingHero.remove();
             return;
         }
 
@@ -244,6 +286,10 @@
     // ========== CREATE HERO SECTION ========== 
     function createHeroSection(data) {
         console.log('🎨 Creating hero section...');
+
+        // Cleanup potential movie elements
+        const movieHero = document.getElementById('mjeed-movie-hero');
+        if (movieHero) movieHero.remove();
 
         const existingHero = document.getElementById('mjeed-series-hero');
         if (existingHero) {
@@ -562,7 +608,7 @@
     function showNotification(message, type = 'success') {
         const notification = document.createElement('div');
 
-        // Apple TV Style Notification
+        // Style Notification
         if (type === 'mjeed-tv' || type === 'mjeed-tv-success') {
             const icon = type === 'mjeed-tv-success' ? '✓' : '✕';
             notification.style.cssText = `

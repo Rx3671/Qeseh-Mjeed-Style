@@ -8,15 +8,27 @@
 
     // ========== INITIALIZATION ========== 
     function init() {
-        // Mark touch devices
-        markTouchDevice();
-
+        // Wait for DOM to be ready before accessing body/head
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', applyNetflixDesign);
+            document.addEventListener('DOMContentLoaded', applyMjeedDesign);
         } else {
-            applyNetflixDesign();
+            applyMjeedDesign();
         }
     }
+
+    // SPA Navigation Support
+    let lastUrl = location.href;
+    new MutationObserver(() => {
+        const url = location.href;
+        if (url !== lastUrl) {
+            lastUrl = url;
+            console.log('🔄 URL changed to:', url);
+            setTimeout(applyMjeedDesign, 500); // Re-apply design
+        }
+    }).observe(document, { subtree: true, childList: true });
+
+    // Start
+    init();
 
     // ========== ICONS ==========
     const ICONS = {
@@ -27,8 +39,12 @@
     };
 
     // ========== MAIN FUNCTION ========== 
-    function applyNetflixDesign() {
-        console.log('🎬 Netflix Design: Starting...');
+    function applyMjeedDesign() {
+        console.log('🎬 Mjeed Design: Starting...');
+
+        // Mark touch devices (now safe to access body)
+        markTouchDevice();
+
         document.body.classList.add('mjeed-browsing');
 
         // Aggressively ensure main content containers are visible
@@ -37,13 +53,14 @@
         ensureViewport(); // Ensure mobile responsiveness
 
         hideOriginalElements();
-        injectNetflixHeader();
+        injectMjeedHeader();
         enhancePosters();
         setupScrollEffects();
         addLazyLoading();
+        injectAnimationStyles(); // Moved here
         injectMadeWithLove();
 
-        console.log('✅ Netflix Design: Complete!');
+        console.log('✅ Mjeed Design: Complete!');
 
         // Initialize sync listeners
         setupSyncListeners();
@@ -173,7 +190,7 @@
     }
 
     // ========== INJECT NETFLIX HEADER ========== 
-    function injectNetflixHeader() {
+    function injectMjeedHeader() {
         if (document.getElementById('mjeed-header')) return;
 
         // Skip on Watch Page to prevent conflicts
@@ -702,7 +719,7 @@
                     addedAt: new Date().toISOString()
                 });
                 updateFavoriteButton(button, true);
-                showNotification('تمت الإضافة إلى قائمتي', 'mjeed-tv-success');
+                showNotification('تمت الإضافة إلى قائمتي', 'mjeed-success');
             }
 
             await setStorageData(CONFIG.STORAGE_KEYS.FAVORITES, favorites);
@@ -756,9 +773,9 @@
     function showNotification(message, type = 'success') {
         const notification = document.createElement('div');
 
-        // Apple TV Style Notification
-        if (type === 'mjeed-tv' || type === 'mjeed-tv-success') {
-            const icon = type === 'mjeed-tv-success' ? '✓' : '✕';
+        // Mjeed Style Notification
+        if (type === 'mjeed' || type === 'mjeed-success') {
+            const icon = type === 'mjeed-success' ? '✓' : '✕';
             notification.style.cssText = `
                 position: fixed;
                 top: 24px;
@@ -783,7 +800,7 @@
                 <div style="
                     width: 24px; 
                     height: 24px; 
-                    background: ${type === 'mjeed-tv-success' ? '#34c759' : '#ff3b30'}; 
+                    background: ${type === 'mjeed-success' ? '#34c759' : '#ff3b30'}; 
                     border-radius: 50%; 
                     display: flex; 
                     align-items: center; 
@@ -1050,42 +1067,47 @@
     }
 
     // Add fade in animation keyframe
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideInRight {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
+    function injectAnimationStyles() {
+        if (document.getElementById('mjeed-main-animations')) return;
+
+        const style = document.createElement('style');
+        style.id = 'mjeed-main-animations';
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
             }
-            to {
-                transform: translateX(0);
-                opacity: 1;
+            
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
             }
-        }
-        
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
             }
-            to {
-                transform: translateX(400px);
-                opacity: 0;
+            
+            @keyframes fadeOut {
+                from { opacity: 1; transform: scale(1); }
+                to { opacity: 0; transform: scale(0.8); }
             }
+        `;
+        if (document.head) {
+            document.head.appendChild(style);
         }
-        
-        @keyframes fadeOut {
-            from { opacity: 1; transform: scale(1); }
-            to { opacity: 0; transform: scale(0.8); }
-        }
-    `;
-    if (document.head) {
-        document.head.appendChild(style);
     }
 
 })();

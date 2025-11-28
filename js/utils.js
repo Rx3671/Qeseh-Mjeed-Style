@@ -1,5 +1,5 @@
 /*
- * Utility Functions for Qeseh Netflix Extension
+ * Utility Functions for Qeseh Mjeed Style Extension
  * Shared helper functions used across multiple scripts
  */
 

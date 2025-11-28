@@ -1,5 +1,5 @@
 /*
- * Popup Script for Qeseh Netflix Extension
+ * Popup Script for Qeseh Mjeed style Extension
  * Handles popup UI interactions and favorites display
  */
 

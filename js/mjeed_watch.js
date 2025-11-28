@@ -6,16 +6,19 @@
 (function () {
     'use strict';
 
-    const UNIQUE_PREFIX = 'nfx-watch-';
+    const UNIQUE_PREFIX = 'mjeed-watch-';
 
     function initWatchPage() {
         try {
             // Safety check for URL
             if (!window.location.href.includes('/watch')) {
+                document.body.classList.remove(UNIQUE_PREFIX + 'active');
+                const mainContainer = document.querySelector('.' + UNIQUE_PREFIX + 'main-container');
+                if (mainContainer) mainContainer.remove();
                 return;
             }
 
-            console.log('🎬 Netflix Watch Page: Initializing...');
+            console.log('🎬 Mjeed Watch Page: Initializing...');
 
             // 1. Add Unique Body Class
             document.body.classList.add(UNIQUE_PREFIX + 'active');
@@ -125,13 +128,13 @@
             // 5. Mark as Ready
             document.body.classList.add(UNIQUE_PREFIX + 'ready');
 
-            // Hide Netflix Header
-            const netflixHeader = safeQuerySelector('#mjeed-header');
-            if (netflixHeader) {
-                netflixHeader.style.display = 'none';
+            // Hide   Header
+            const Header = safeQuerySelector('#mjeed-header');
+            if (Header) {
+                Header.style.display = 'none';
             }
 
-            console.log('✅ Netflix Watch Page: Setup Complete');
+            console.log('✅   Watch Page: Setup Complete');
 
         } catch (error) {
             console.error('❌ Watch Page Init Error:', error);
@@ -145,4 +148,35 @@
     } else {
         initWatchPage();
     }
+
+    // SPA Navigation & Content Loading Support
+    let lastUrl = location.href;
+    let retryCount = 0;
+    const MAX_RETRIES = 20;
+    let initTimeout = null;
+
+    new MutationObserver(() => {
+        const url = location.href;
+        const isWatchUrl = url.includes('/watch');
+
+        if (url !== lastUrl) {
+            lastUrl = url;
+            console.log('🔄 URL changed to:', url);
+            retryCount = 0;
+            setTimeout(initWatchPage, 500);
+        } else if (isWatchUrl && !document.querySelector('.' + UNIQUE_PREFIX + 'main-container')) {
+            if (retryCount < MAX_RETRIES) {
+                const hasPlayer = document.querySelector('.getEmbed') || document.querySelector('.modern-player-container');
+                if (hasPlayer) {
+                    if (!initTimeout) {
+                        initTimeout = setTimeout(() => {
+                            initWatchPage();
+                            retryCount++;
+                            initTimeout = null;
+                        }, 200);
+                    }
+                }
+            }
+        }
+    }).observe(document, { subtree: true, childList: true });
 })();

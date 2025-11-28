@@ -1,5 +1,5 @@
 /*
- * Configuration Constants for Qeseh Netflix Extension
+ * Configuration Constants for Qeseh Mjeed Extension
  * Central location for all configuration values
  */
 
@@ -52,7 +52,7 @@ const CONFIG = {
 
     // Classes
     CLASSES: {
-        NETFLIX_BROWSING: 'mjeed-browsing',
+        MJEED_BROWSING: 'mjeed-browsing',
         TOUCH_DEVICE: 'touch-device',
         IN_LIST: 'in-list',
         ACTIVE: 'active',
